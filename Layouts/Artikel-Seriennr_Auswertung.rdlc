@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="ReportCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ReportCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReportCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PageCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PageCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PageCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DateCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DateCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DateCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ItemNo_ArtikelSeriennrCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ItemNo_ArtikelSeriennrCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ItemNo_ArtikelSeriennrCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SerialNo_ArtikelSeriennrCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SerialNo_ArtikelSeriennrCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SerialNo_ArtikelSeriennrCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SerialNoDescription_ArtikelSeriennrCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SerialNoDescription_ArtikelSeriennrCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SerialNoDescription_ArtikelSeriennrCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SerialNoDescription2_ArtikelSeriennrCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SerialNoDescription2_ArtikelSeriennrCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SerialNoDescription2_ArtikelSeriennrCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Description_ArtikelSeriennrCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Description_ArtikelSeriennrCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Description_ArtikelSeriennrCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Description2_ArtikelSeriennrCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Description2_ArtikelSeriennrCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Description2_ArtikelSeriennrCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ReportForNavId_1000000000">
+          <DataField>ReportForNavId_1000000000</DataField>
+        </Field>
+        <Field Name="ItemNo_ArtikelSeriennr">
+          <DataField>ItemNo_ArtikelSeriennr</DataField>
+        </Field>
+        <Field Name="SerialNo_ArtikelSeriennr">
+          <DataField>SerialNo_ArtikelSeriennr</DataField>
+        </Field>
+        <Field Name="SerialNoDescription_ArtikelSeriennr">
+          <DataField>SerialNoDescription_ArtikelSeriennr</DataField>
+        </Field>
+        <Field Name="SerialNoDescription2_ArtikelSeriennr">
+          <DataField>SerialNoDescription2_ArtikelSeriennr</DataField>
+        </Field>
+        <Field Name="Description_ArtikelSeriennr">
+          <DataField>Description_ArtikelSeriennr</DataField>
+        </Field>
+        <Field Name="Description2_ArtikelSeriennr">
+          <DataField>Description2_ArtikelSeriennr</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

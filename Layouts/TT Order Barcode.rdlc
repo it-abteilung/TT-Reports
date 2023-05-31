@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ReportForNavId_4458">
+          <DataField>ReportForNavId_4458</DataField>
+        </Field>
+        <Field Name="Purchase_Header_Document_Type">
+          <DataField>Purchase_Header_Document_Type</DataField>
+        </Field>
+        <Field Name="Purchase_Header_No_">
+          <DataField>Purchase_Header_No_</DataField>
+        </Field>
+        <Field Name="ReportForNavId_5701">
+          <DataField>ReportForNavId_5701</DataField>
+        </Field>
+        <Field Name="ReportForNavId_6455">
+          <DataField>ReportForNavId_6455</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text004_CopyText__________Purchase_Header___Job_No____________Purchase_Header___No__">
+          <DataField>STRSUBSTNO_Text004_CopyText__________Purchase_Header___Job_No____________Purchase_Header___No__</DataField>
+        </Field>
+        <Field Name="BuyFromAddr_1_">
+          <DataField>BuyFromAddr_1_</DataField>
+        </Field>
+        <Field Name="BuyFromAddr_2_">
+          <DataField>BuyFromAddr_2_</DataField>
+        </Field>
+        <Field Name="BuyFromAddr_3_">
+          <DataField>BuyFromAddr_3_</DataField>
+        </Field>
+        <Field Name="BuyFromAddr_4_">
+          <DataField>BuyFromAddr_4_</DataField>
+        </Field>
+        <Field Name="BuyFromAddr_5_">
+          <DataField>BuyFromAddr_5_</DataField>
+        </Field>
+        <Field Name="BuyFromAddr_6_">
+          <DataField>BuyFromAddr_6_</DataField>
+        </Field>
+        <Field Name="BuyFromAddr_7_">
+          <DataField>BuyFromAddr_7_</DataField>
+        </Field>
+        <Field Name="BuyFromAddr_8_">
+          <DataField>BuyFromAddr_8_</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Address___________CompanyInfo__Post_Code__________CompanyInfo_City_______Germany_">
+          <DataField>CompanyInfo_Address___________CompanyInfo__Post_Code__________CompanyInfo_City_______Germany_</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Name">
+          <DataField>CompanyInfo_Name</DataField>
+        </Field>
+        <Field Name="Purchase_Header___No________">
+          <DataField>Purchase_Header___No________</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Bestellername">
+          <DataField>Purchase_Header__Bestellername</DataField>
+        </Field>
+        <Field Name="Purchase_Header___Expected_Receipt_Date_">
+          <DataField>Purchase_Header___Expected_Receipt_Date_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__BestellernameCaption">
+          <DataField>Purchase_Header__BestellernameCaption</DataField>
+        </Field>
+        <Field Name="Purchase_Header___Expected_Receipt_Date_Caption">
+          <DataField>Purchase_Header___Expected_Receipt_Date_Caption</DataField>
+        </Field>
+        <Field Name="PageLoop_Number">
+          <DataField>PageLoop_Number</DataField>
+        </Field>
+        <Field Name="ReportForNavId_6547">
+          <DataField>ReportForNavId_6547</DataField>
+        </Field>
+        <Field Name="ReportForNavId_7551">
+          <DataField>ReportForNavId_7551</DataField>
+        </Field>
+        <Field Name="Purchase_Line__Description_Control63">
+          <DataField>Purchase_Line__Description_Control63</DataField>
+        </Field>
+        <Field Name="Purchase_Line__Quantity">
+          <DataField>Purchase_Line__Quantity</DataField>
+        </Field>
+        <Field Name="Purchase_Line__QuantityFormat">
+          <DataField>Purchase_Line__QuantityFormat</DataField>
+        </Field>
+        <Field Name="Purchase_Line___Unit_of_Measure_">
+          <DataField>Purchase_Line___Unit_of_Measure_</DataField>
+        </Field>
+        <Field Name="pos">
+          <DataField>pos</DataField>
+        </Field>
+        <Field Name="FORMAT_PurchLine__Line_No_________">
+          <DataField>FORMAT_PurchLine__Line_No_________</DataField>
+        </Field>
+        <Field Name="Purchase_Line___Description_2_">
+          <DataField>Purchase_Line___Description_2_</DataField>
+        </Field>
+        <Field Name="Baugruppe______Purchase_Line__Baugruppe">
+          <DataField>Baugruppe______Purchase_Line__Baugruppe</DataField>
+        </Field>
+        <Field Name="Pos_______Purchase_Line__Pos">
+          <DataField>Pos_______Purchase_Line__Pos</DataField>
+        </Field>
+        <Field Name="Purchase_Line__Description_Control63Caption">
+          <DataField>Purchase_Line__Description_Control63Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Line__QuantityCaption">
+          <DataField>Purchase_Line__QuantityCaption</DataField>
+        </Field>
+        <Field Name="Purchase_Line___Unit_of_Measure_Caption">
+          <DataField>Purchase_Line___Unit_of_Measure_Caption</DataField>
+        </Field>
+        <Field Name="Pos_Caption">
+          <DataField>Pos_Caption</DataField>
+        </Field>
+        <Field Name="RoundLoop_Number">
+          <DataField>RoundLoop_Number</DataField>
+        </Field>
+        <Field Name="VisibilityPurchLine">
+          <DataField>VisibilityPurchLine</DataField>
+        </Field>
+        <Field Name="Item_Picture">
+          <DataField>Item_Picture</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

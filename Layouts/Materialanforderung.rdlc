@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="HeaderCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>HeaderCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>HeaderCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Header2Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Header2Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Header2Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ArbeitsanweisungUeberschriftCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ArbeitsanweisungUeberschriftCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ArbeitsanweisungUeberschriftCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Arbeitsanweisung1Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Arbeitsanweisung1Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Arbeitsanweisung1Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Arbeitsanweisung2Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Arbeitsanweisung2Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Arbeitsanweisung2Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Arbeitsanweisung3Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Arbeitsanweisung3Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Arbeitsanweisung3Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Arbeitsanweisung4Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Arbeitsanweisung4Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Arbeitsanweisung4Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Arbeitsanweisung5Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Arbeitsanweisung5Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Arbeitsanweisung5Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PageCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PageCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PageCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AuftragsnummerCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>AuftragsnummerCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AuftragsnummerCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReparaturleiterCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ReparaturleiterCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReparaturleiterCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SchiffCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SchiffCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SchiffCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Liegeplatz_ReparaturortCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Liegeplatz_ReparaturortCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Liegeplatz_ReparaturortCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReparaturbeginnCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ReparaturbeginnCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReparaturbeginnCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FertigstellungCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FertigstellungCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>FertigstellungCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Abholung_TransportCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Abholung_TransportCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Abholung_TransportCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TransportmittelCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>TransportmittelCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>TransportmittelCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="WeitertransportCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>WeitertransportCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>WeitertransportCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="VerpackungCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>VerpackungCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>VerpackungCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="amCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>amCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>amCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="durchCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>durchCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>durchCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="vonCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>vonCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>vonCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="nachCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>nachCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>nachCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LKWCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>LKWCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>LKWCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SeefrachtCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SeefrachtCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SeefrachtCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LuftfrachtCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>LuftfrachtCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>LuftfrachtCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="QuadratCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>QuadratCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>QuadratCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="KisteCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>KisteCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>KisteCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="VerschlagCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>VerschlagCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>VerschlagCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ContainerCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ContainerCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ContainerCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="unvepacktCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>unvepacktCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>unvepacktCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AnzahlCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>AnzahlCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AnzahlCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="GenaueBezeichnungCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>GenaueBezeichnungCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>GenaueBezeichnungCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="gepacktCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>gepacktCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>gepacktCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ErstellerCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ErstellerCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ErstellerCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DatumUnterschriftCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DatumUnterschriftCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DatumUnterschriftCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="lblZusatzanforderung">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>lblZusatzanforderung</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>lblZusatzanforderung</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="lblLiefertermin">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>lblLiefertermin</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>lblLiefertermin</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="lblDescription1">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>lblDescription1</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>lblDescription1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="lblDescription2">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>lblDescription2</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>lblDescription2</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Picture_CompanyInformation">
+          <DataField>Picture_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ProjektNr_Materialanforderung">
+          <DataField>ProjektNr_Materialanforderung</DataField>
+        </Field>
+        <Field Name="ArtikelNr_Materialanforderung">
+          <DataField>ArtikelNr_Materialanforderung</DataField>
+        </Field>
+        <Field Name="Beschreibung_Materialanforderung">
+          <DataField>Beschreibung_Materialanforderung</DataField>
+        </Field>
+        <Field Name="Beschreibung2_Materialanforderung">
+          <DataField>Beschreibung2_Materialanforderung</DataField>
+        </Field>
+        <Field Name="Menge_Materialanforderung">
+          <DataField>Menge_Materialanforderung</DataField>
+        </Field>
+        <Field Name="Menge_MaterialanforderungFormat">
+          <DataField>Menge_MaterialanforderungFormat</DataField>
+        </Field>
+        <Field Name="lfdnr_Materialanforderung">
+          <DataField>lfdnr_Materialanforderung</DataField>
+        </Field>
+        <Field Name="Einheit_Materialanforderung">
+          <DataField>Einheit_Materialanforderung</DataField>
+        </Field>
+        <Field Name="Liefertermin_Materialanforderung">
+          <DataField>Liefertermin_Materialanforderung</DataField>
+        </Field>
+        <Field Name="Zusatzanforderung_Materialanforderung">
+          <DataField>Zusatzanforderung_Materialanforderung</DataField>
+        </Field>
+        <Field Name="Reparaturort_Job">
+          <DataField>Reparaturort_Job</DataField>
+        </Field>
+        <Field Name="Objektname_Job">
+          <DataField>Objektname_Job</DataField>
+        </Field>
+        <Field Name="Reparaturleiter_Job">
+          <DataField>Reparaturleiter_Job</DataField>
+        </Field>
+        <Field Name="StartingDate_Job">
+          <DataField>StartingDate_Job</DataField>
+        </Field>
+        <Field Name="EndingDate_Job">
+          <DataField>EndingDate_Job</DataField>
+        </Field>
+        <Field Name="CustomerNo_Job">
+          <DataField>CustomerNo_Job</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

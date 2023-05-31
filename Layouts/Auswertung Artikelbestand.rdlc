@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="AnzahlGeraeteCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>AnzahlGeraeteCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AnzahlGeraeteCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AnzahlProjektCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>AnzahlProjektCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AnzahlProjektCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReportCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ReportCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReportCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PageCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PageCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PageCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DateCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DateCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DateCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="No_ItemCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>No_ItemCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>No_ItemCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Description_ItemCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Description_ItemCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Description_ItemCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Description2_ItemCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Description2_ItemCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Description2_ItemCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ProjektNr_AusstattungPostenCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ProjektNr_AusstattungPostenCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ProjektNr_AusstattungPostenCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="MitarbeiterNr_AusstattungPostenCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>MitarbeiterNr_AusstattungPostenCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>MitarbeiterNr_AusstattungPostenCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ArtikelNr_AusstattungPostenCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ArtikelNr_AusstattungPostenCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ArtikelNr_AusstattungPostenCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Beschreibung_AusstattungPostenCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Beschreibung_AusstattungPostenCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Beschreibung_AusstattungPostenCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Beschreibung2_AusstattungPostenCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Beschreibung2_AusstattungPostenCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Beschreibung2_AusstattungPostenCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Seriennummer_AusstattungPostenCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Seriennummer_AusstattungPostenCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Seriennummer_AusstattungPostenCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Restmenge_AusstattungPostenCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Restmenge_AusstattungPostenCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Restmenge_AusstattungPostenCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="MitarbeiterName_AusstattungPostenCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>MitarbeiterName_AusstattungPostenCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>MitarbeiterName_AusstattungPostenCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ReportForNavId_1000000010">
+          <DataField>ReportForNavId_1000000010</DataField>
+        </Field>
+        <Field Name="No_Item">
+          <DataField>No_Item</DataField>
+        </Field>
+        <Field Name="Description_Item">
+          <DataField>Description_Item</DataField>
+        </Field>
+        <Field Name="Description2_Item">
+          <DataField>Description2_Item</DataField>
+        </Field>
+        <Field Name="AnzahlGeraete">
+          <DataField>AnzahlGeraete</DataField>
+        </Field>
+        <Field Name="ReportForNavId_1000000000">
+          <DataField>ReportForNavId_1000000000</DataField>
+        </Field>
+        <Field Name="ProjektNr_AusstattungPosten">
+          <DataField>ProjektNr_AusstattungPosten</DataField>
+        </Field>
+        <Field Name="MitarbeiterNr_AusstattungPosten">
+          <DataField>MitarbeiterNr_AusstattungPosten</DataField>
+        </Field>
+        <Field Name="ArtikelNr_AusstattungPosten">
+          <DataField>ArtikelNr_AusstattungPosten</DataField>
+        </Field>
+        <Field Name="Beschreibung_AusstattungPosten">
+          <DataField>Beschreibung_AusstattungPosten</DataField>
+        </Field>
+        <Field Name="Beschreibung2_AusstattungPosten">
+          <DataField>Beschreibung2_AusstattungPosten</DataField>
+        </Field>
+        <Field Name="Seriennummer_AusstattungPosten">
+          <DataField>Seriennummer_AusstattungPosten</DataField>
+        </Field>
+        <Field Name="Restmenge_AusstattungPosten">
+          <DataField>Restmenge_AusstattungPosten</DataField>
+        </Field>
+        <Field Name="Restmenge_AusstattungPostenFormat">
+          <DataField>Restmenge_AusstattungPostenFormat</DataField>
+        </Field>
+        <Field Name="MitarbeiterName_AusstattungPosten">
+          <DataField>MitarbeiterName_AusstattungPosten</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
