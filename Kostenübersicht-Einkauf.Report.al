@@ -132,6 +132,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                     l_PurchLine: Record "Purchase Line";
                     l_amount: Decimal;
                     l_amountVAT: Decimal;
+                    l_discount: Decimal;
                     l_Versand: Decimal;
                     l_PurchHeader: Record "Purchase Header";
                     l_AktSumme: Decimal;
@@ -167,6 +168,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                 waehrungsfaktor := 1;
                             LetzteBelegnummer := "Purchase Line"."Document No.";
                             Clear(l_amount);
+                            Clear(l_discount);
                             Clear(l_amountVAT);
                             Clear(l_Versand);
                             MengeSicher := 0;
@@ -196,6 +198,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                         l_AktSumme := l_AktSumme - (l_AktSumme / 100 * l_PurchLine."Line Discount %");
 
                                     l_amount := l_amount + l_AktSumme;
+                                    l_discount := l_discount + l_PurchLine."Inv. Discount Amount";
                                     l_amountVAT := l_amountVAT + l_AktSumme + (l_AktSumme / 100 * l_PurchLine."VAT %");
                                     if (l_PurchLine."No." = '999900') or (l_PurchLine."No." = '999901') then begin
                                         l_Versand := l_Versand + l_AktSumme;
@@ -232,9 +235,9 @@ Report 50022 "Kostenübersicht - Einkauf"
                             DrName := l_PurchHeader."Buy-from Vendor Name";
                             DrLeistung := l_PurchHeader.Leistung;
                             //  DrBetrag := l_amount+l_Versand;
-                            DrBetrag := l_amount;
+                            DrBetrag := l_amount - l_discount;
                             DrVersand := l_Versand;
-                            DrMWST := l_amountVAT - l_amount;
+                            DrMWST := l_amountVAT - l_amount - l_discount;
                             DrRechnung := PurchInvHeader."Vendor Invoice No.";
                             if Leistungszeitraum = '' then
                                 Leistungszeitraum := l_PurchHeader.Leistungszeitraum;
@@ -246,8 +249,9 @@ Report 50022 "Kostenübersicht - Einkauf"
                                 PurchLine_temp."Line No." := 0;
                                 PurchLine_temp."Qty. to Invoice" := MengeSicher;
                                 PurchLine_temp."Direct Unit Cost" := l_amount;
+                                PurchLine_temp."Inv. Discount Amount" := l_discount;
                                 PurchLine_temp."Unit Cost (LCY)" := l_Versand;
-                                PurchLine_temp.Amount := l_amountVAT - l_amount;
+                                PurchLine_temp.Amount := l_amountVAT - l_amount - l_discount;
                                 PurchLine_temp.Insert;
                             end;
 
@@ -272,6 +276,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                         l_PurchHeader: Record "Purchase Header";
                         l_PurchLine: Record "Purchase Line";
                         l_amount: Decimal;
+                        l_discount: Decimal;
                         l_amountVAT: Decimal;
                         l_Versand: Decimal;
                         l_AktSumme: Decimal;
@@ -304,6 +309,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                 waehrungsfaktor := 1;
                             LetzteBelegnummer := "Document No.";
                             Clear(l_amount);
+                            Clear(l_discount);
                             Clear(l_amountVAT);
                             Clear(l_Versand);
                             MengeSicher := 0;
@@ -324,6 +330,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                         l_AktSumme := l_AktSumme - (l_AktSumme / 100 * l_PurchLine."Line Discount %");
 
                                     l_amount := l_amount + l_AktSumme;
+                                    l_discount := l_discount + l_PurchLine."Inv. Discount Amount";
                                     l_amountVAT := l_amountVAT + l_AktSumme + (l_AktSumme / 100 * l_PurchLine."VAT %");
                                     if (l_PurchLine."No." = '999900') or (l_PurchLine."No." = '999901') then begin
                                         l_Versand := l_Versand + l_AktSumme;
@@ -360,7 +367,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                             DrName := l_PurchHeader."Buy-from Vendor Name";
                             DrLeistung := l_PurchHeader.Leistung;
                             //  DrBetrag := l_amount+l_Versand;
-                            DrBetrag := l_amount;
+                            DrBetrag := l_amount - l_discount;
                             DrVersand := l_Versand;
                             DrMWST := l_amountVAT - l_amount;
                             DrRechnung := PurchInvHeader."Vendor Invoice No.";
@@ -370,6 +377,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                             if MengeSicher <> 0 then begin
                                 if PurchLine_temp.Get(l_PurchLine."Document Type", l_PurchLine."Document No.", 0) then begin
                                     PurchLine_temp."Direct Unit Cost" += l_amount;
+                                    PurchLine_temp."Inv. Discount Amount" += l_discount;
                                     PurchLine_temp."Unit Cost (LCY)" += l_Versand;
                                     PurchLine_temp.Amount += l_amountVAT - l_amount;
                                     PurchLine_temp.Modify;
@@ -381,6 +389,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     PurchLine_temp."Line No." := 0;
                                     PurchLine_temp."Qty. to Invoice" := MengeSicher;
                                     PurchLine_temp."Direct Unit Cost" := l_amount;
+                                    PurchLine_temp."Inv. Discount Amount" := l_discount;
                                     PurchLine_temp."Unit Cost (LCY)" := l_Versand;
                                     PurchLine_temp.Amount := l_amountVAT - l_amount;
                                     PurchLine_temp.Insert;
@@ -448,6 +457,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                     l_PurchHeader: Record "Purchase Header";
                     l_PurchLine: Record "Purchase Line";
                     l_amount: Decimal;
+                    l_discount: Decimal;
                     l_amountVAT: Decimal;
                     l_Versand: Decimal;
                     l_AktSumme: Decimal;
@@ -495,7 +505,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                     DrDatum := l_PurchHeader."Order Date";
                     DrName := l_PurchHeader."Buy-from Vendor Name";
                     DrLeistung := l_PurchHeader.Leistung;
-                    DrBetrag := PurchLine_temp."Direct Unit Cost";
+                    DrBetrag := PurchLine_temp."Direct Unit Cost" - PurchLine_temp."Inv. Discount Amount";
                     DrVersand := PurchLine_temp."Unit Cost (LCY)";
                     DrMWST := PurchLine_temp.Amount;
                     DrRechnung := PurchInvHeader."Vendor Invoice No.";
@@ -519,6 +529,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                 var
                     l_PurchInvLine: Record "Purch. Inv. Line";
                     l_amount: Decimal;
+                    l_discount: Decimal;
                     l_amountVAT: Decimal;
                     l_Versand: Decimal;
                     l_PurchInvHeader: Record "Purch. Inv. Header";
@@ -555,6 +566,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                 waehrungsfaktor := 1;
                             LetzteBelegnummer := "Purch. Inv. Line"."Document No.";
                             Clear(l_amount);
+                            Clear(l_discount);
                             Clear(l_amountVAT);
                             Clear(l_Versand);
                             l_PurchInvLine.Reset;
@@ -566,6 +578,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                 repeat
                                     if l_PurchInvHeader."Prices Including VAT" then begin
                                         l_amount := l_amount + (l_PurchInvLine.Amount / waehrungsfaktor);
+                                        l_discount := l_discount + (l_PurchInvLine."Inv. Discount Amount" / waehrungsfaktor);
                                         l_amountVAT := l_amountVAT +
                                                        (l_PurchInvLine.Amount / waehrungsfaktor) +
                                                        (l_PurchInvLine.Amount / waehrungsfaktor / 100 * l_PurchInvLine."VAT %");
@@ -575,6 +588,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     end
                                     else begin
                                         l_amount := l_amount + (l_PurchInvLine."Line Amount" / waehrungsfaktor);
+                                        l_discount := l_discount + (l_PurchInvLine."Inv. Discount Amount" / waehrungsfaktor);
                                         l_amountVAT := l_amountVAT +
                                                        (l_PurchInvLine."Line Amount" / waehrungsfaktor) +
                                                        (l_PurchInvLine."Line Amount" / waehrungsfaktor / 100 * l_PurchInvLine."VAT %");
@@ -608,7 +622,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                             DrName := l_PurchInvHeader."Buy-from Vendor Name";
                             DrLeistung := l_PurchInvHeader.Leistung;
                             //  DrBetrag := l_amount+l_Versand;
-                            DrBetrag := l_amount;
+                            DrBetrag := l_amount - l_discount;
                             DrVersand := l_Versand;
                             DrMWST := l_amountVAT - l_amount;
                             DrRechnung := l_PurchInvHeader."Vendor Invoice No.";
@@ -618,6 +632,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                             if l_amount <> 0 then begin
                                 if PurchInvLine_temp.Get(l_PurchInvLine."Document No.", 0) then begin
                                     PurchInvLine_temp."Direct Unit Cost" += l_amount;
+                                    PurchInvLine_temp."Inv. Discount Amount" += l_amount;
                                     PurchInvLine_temp."Unit Cost (LCY)" += l_Versand;
                                     PurchInvLine_temp.Amount += l_amountVAT - l_amount;
                                     PurchInvLine_temp.Modify;
@@ -628,6 +643,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                         PurchInvLine_temp.Leistungsart := l_PurchInvHeader.Leistungsart;
                                     PurchInvLine_temp."Line No." := 0;
                                     PurchInvLine_temp."Direct Unit Cost" := l_amount;
+                                    PurchInvLine_temp."Inv. Discount Amount" := l_amount;
                                     PurchInvLine_temp."Unit Cost (LCY)" := l_Versand;
                                     PurchInvLine_temp.Amount := l_amountVAT - l_amount;
                                     PurchInvLine_temp.Insert;
@@ -655,6 +671,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                     var
                         l_PurchInvLine: Record "Purch. Inv. Line";
                         l_amount: Decimal;
+                        l_discount: Decimal;
                         l_amountVAT: Decimal;
                         l_Versand: Decimal;
                         l_PurchInvHeader: Record "Purch. Inv. Header";
@@ -685,6 +702,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                 waehrungsfaktor := 1;
                             LetzteBelegnummer := "Document No.";
                             Clear(l_amount);
+                            Clear(l_discount);
                             Clear(l_amountVAT);
                             Clear(l_Versand);
                             l_PurchInvLine.Reset;
@@ -694,6 +712,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                 repeat
                                     if l_PurchInvHeader."Prices Including VAT" then begin
                                         l_amount := l_amount + (l_PurchInvLine.Amount / waehrungsfaktor);
+                                        l_discount := l_discount + (l_PurchInvLine."Inv. Discount Amount" / waehrungsfaktor);
                                         l_amountVAT := l_amountVAT +
                                                        (l_PurchInvLine.Amount / waehrungsfaktor) +
                                                        (l_PurchInvLine.Amount / waehrungsfaktor / 100 * l_PurchInvLine."VAT %");
@@ -703,6 +722,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     end
                                     else begin
                                         l_amount := l_amount + (l_PurchInvLine."Line Amount" / waehrungsfaktor);
+                                        l_discount := l_discount + (l_PurchInvLine."Inv. Discount Amount" / waehrungsfaktor);
                                         l_amountVAT := l_amountVAT +
                                                        (l_PurchInvLine."Line Amount" / waehrungsfaktor) +
                                                        (l_PurchInvLine."Line Amount" / waehrungsfaktor / 100 * l_PurchInvLine."VAT %");
@@ -737,7 +757,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                             DrName := l_PurchInvHeader."Buy-from Vendor Name";
                             DrLeistung := l_PurchInvHeader.Leistung;
                             //  DrBetrag := l_amount+l_Versand;
-                            DrBetrag := l_amount;
+                            DrBetrag := l_amount - l_discount;
                             DrVersand := l_Versand;
                             DrMWST := l_amountVAT - l_amount;
                             DrRechnung := l_PurchInvHeader."Vendor Invoice No.";
@@ -749,6 +769,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     PurchInvLine_temp."Direct Unit Cost" += l_amount;
                                     PurchInvLine_temp."Unit Cost (LCY)" += l_Versand;
                                     PurchInvLine_temp.Amount += l_amountVAT - l_amount;
+                                    PurchInvLine_temp."Inv. Discount Amount" += l_discount;
                                     PurchInvLine_temp.Modify;
                                 end
                                 else begin
@@ -757,6 +778,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                         PurchInvLine_temp.Leistungsart := l_PurchInvHeader.Leistungsart;
                                     PurchInvLine_temp."Line No." := 0;
                                     PurchInvLine_temp."Direct Unit Cost" := l_amount;
+                                    PurchInvLine_temp."Inv. Discount Amount" := l_discount;
                                     PurchInvLine_temp."Unit Cost (LCY)" := l_Versand;
                                     PurchInvLine_temp.Amount := l_amountVAT - l_amount;
                                     PurchInvLine_temp.Insert;
@@ -773,6 +795,8 @@ Report 50022 "Kostenübersicht - Einkauf"
                     SetFilter("Job No.", '<>%1', '');       // G-ERP.AG 2021-06-24
                 end;
             }
+
+
             dataitem(Integer_Rech; "Integer")
             {
                 DataItemTableView = sorting(Number);
@@ -859,7 +883,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                     DrDatum := l_PurchInvHeader."Order Date";
                     DrName := l_PurchInvHeader."Buy-from Vendor Name";
                     DrLeistung := l_PurchInvHeader.Leistung;
-                    DrBetrag := PurchInvLine_temp."Direct Unit Cost";
+                    DrBetrag := PurchInvLine_temp."Direct Unit Cost" - PurchInvLine_temp."Inv. Discount Amount";
                     DrVersand := PurchInvLine_temp."Unit Cost (LCY)";
                     DrMWST := PurchInvLine_temp.Amount;
                     DrRechnung := l_PurchInvHeader."Vendor Invoice No.";
