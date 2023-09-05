@@ -1290,9 +1290,11 @@ Report 50026 "TT Standard Sales - Quote TP"
                                 LogInteraction := false;
                         end;
                     }
+
                 }
             }
         }
+
 
         actions
         {
