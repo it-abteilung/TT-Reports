@@ -18,7 +18,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>18cm</Width>
+                  <Width>20.125cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1204,10 +1204,10 @@
                                     <Width>1.625cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>0.84cm</Width>
+                                    <Width>0.875cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2.375cm</Width>
+                                    <Width>4.495cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>0.63cm</Width>
@@ -1798,7 +1798,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Code.BlankZero(Fields!Purchase_Line___Direct_Unit_Cost_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Round(Fields!Purchase_Line___Direct_Unit_Cost_.Value,2))</Value>
                                                     <Style>
                                                       <FontSize>9pt</FontSize>
                                                       <Format>=Fields!Purchase_Line___Direct_Unit_Cost_Format.Value</Format>
@@ -4321,7 +4321,7 @@
                               </Filters>
                               <Top>12.375cm</Top>
                               <Height>7.93141cm</Height>
-                              <Width>17.97cm</Width>
+                              <Width>20.125cm</Width>
                               <ZIndex>35</ZIndex>
                               <Style />
                             </Tablix>
@@ -5999,7 +5999,7 @@
               </Filter>
             </Filters>
             <Height>29.65904cm</Height>
-            <Width>18cm</Width>
+            <Width>20.125cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -6010,7 +6010,7 @@
         <Height>29.65904cm</Height>
         <Style />
       </Body>
-      <Width>18cm</Width>
+      <Width>20.125cm</Width>
       <Page>
         <PageHeader>
           <Height>3cm</Height>
