@@ -1,6 +1,7 @@
 report 50073 "Package Tree List"
 {
     DefaultLayout = RDLC;
+    Caption = 'Verlgeich_Pakete_mit _Werkzeuganforderungen';
     RDLCLayout = './Layouts/Package_Tree_List.rdlc';
 
     dataset
@@ -90,6 +91,23 @@ report 50073 "Package Tree List"
 
         layout
         {
+            area(Content)
+            {
+                group(General)
+                {
+                    Caption = 'Filter';
+                    field(JobNo; JobNo)
+                    {
+                        ApplicationArea = all;
+                        Caption = 'Projekt-Nr.';
+                    }
+                    field(BinFilter; BinFilter)
+                    {
+                        ApplicationArea = all;
+                        Caption = 'Pakete';
+                    }
+                }
+            }
         }
 
         actions

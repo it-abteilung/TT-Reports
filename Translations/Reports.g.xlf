@@ -1058,6 +1058,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Materialanforderung Werkzeug - ReportLabel WeitertransportCaption</note>
         </trans-unit>
+        <trans-unit id="Report 153317114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Verlgeich_Pakete_mit _Werkzeuganforderungen</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Package Tree List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 153317114 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Package Tree List - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 153317114 - Control 353952415 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pakete</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Package Tree List - Control BinFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 153317114 - Control 331903282 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Projekt-Nr.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Package Tree List - Control JobNo - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1143488612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Projekt Verbrauch</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3949,7 +3969,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Werkzeuganforderung Werkzeug - Control Orderby - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1080435125 - Control 4059073847 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Bin Content,Line No.</source>
+          <source>Bin Content,Line No.,Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Werkzeuganforderung Werkzeug - Control Orderby - Property OptionCaption</note>
         </trans-unit>

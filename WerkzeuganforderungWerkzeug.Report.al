@@ -204,7 +204,7 @@ Report 50066 "Werkzeuganforderung Werkzeug"
                     {
                         ApplicationArea = All;
                         Caption = 'Order By';
-                        OptionCaption = 'Bin Content,Line No.';
+                        OptionCaption = 'Bin Content,Line No.,Description';
                     }
                 }
             }
@@ -278,7 +278,7 @@ Report 50066 "Werkzeuganforderung Werkzeug"
         BinCode: array[3] of Code[20];
         BinQty: array[3] of Decimal;
         BinCodeSave: Code[20];
-        OrderBy: Option "Bin Content","Line No.";
+        OrderBy: Option "Bin Content","Line No.","Description";
 
 }
 

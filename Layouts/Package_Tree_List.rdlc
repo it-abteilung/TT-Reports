@@ -880,9 +880,9 @@ CInt(Fields!DeltaQuantity_PackageTreeTemp.Value) = 0, "Black"
                 <Value>=Fields!Bin_PackageTreeTemp.Value</Value>
               </SortExpression>
             </SortExpressions>
-            <Top>1.86889in</Top>
+            <Top>1.85394in</Top>
             <Height>0.45833in</Height>
-            <Width>7.1374in</Width>
+            <Width>7.13737in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -908,7 +908,7 @@ CInt(Fields!DeltaQuantity_PackageTreeTemp.Value) = 0, "Black"
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>2.0862cm</Top>
+            <Top>2.04823cm</Top>
             <Height>0.62116cm</Height>
             <Width>17.875cm</Width>
             <ZIndex>1</ZIndex>
@@ -1301,7 +1301,7 @@ CInt(Fields!DeltaQuantity_PackageTreeTemp.Value) = 0, "Black"
                 <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
-            <Top>3.05309cm</Top>
+            <Top>3.01512cm</Top>
             <Height>1.35875cm</Height>
             <Width>17.875cm</Width>
             <ZIndex>2</ZIndex>
@@ -1316,7 +1316,7 @@ CInt(Fields!DeltaQuantity_PackageTreeTemp.Value) = 0, "Black"
             <Value>=First(Fields!TmpCompanyInformation.Value, "DataSet_Result")</Value>
             <MIMEType>image/bmp</MIMEType>
             <Sizing>Fit</Sizing>
-            <Top>0.2672cm</Top>
+            <Top>0.22923cm</Top>
             <Height>1.5cm</Height>
             <Width>17.875cm</Width>
             <ZIndex>3</ZIndex>
@@ -1342,7 +1342,7 @@ CInt(Fields!DeltaQuantity_PackageTreeTemp.Value) = 0, "Black"
       <Width>18.71554cm</Width>
       <Page>
         <PageFooter>
-          <Height>0.81167cm</Height>
+          <Height>0.87081cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
