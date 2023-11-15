@@ -18,7 +18,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>20.125cm</Width>
+                  <Width>18cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1198,7 +1198,7 @@
                                     <Width>1cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>9cm</Width>
+                                    <Width>9.375cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.625cm</Width>
@@ -1207,7 +1207,7 @@
                                     <Width>0.875cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>4.495cm</Width>
+                                    <Width>1.995cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>0.63cm</Width>
@@ -4321,7 +4321,7 @@
                               </Filters>
                               <Top>12.375cm</Top>
                               <Height>7.93141cm</Height>
-                              <Width>20.125cm</Width>
+                              <Width>18cm</Width>
                               <ZIndex>35</ZIndex>
                               <Style />
                             </Tablix>
@@ -5999,7 +5999,7 @@
               </Filter>
             </Filters>
             <Height>29.65904cm</Height>
-            <Width>20.125cm</Width>
+            <Width>18cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -6010,7 +6010,7 @@
         <Height>29.65904cm</Height>
         <Style />
       </Body>
-      <Width>20.125cm</Width>
+      <Width>18cm</Width>
       <Page>
         <PageHeader>
           <Height>3cm</Height>
