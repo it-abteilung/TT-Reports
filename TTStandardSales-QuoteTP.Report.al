@@ -567,7 +567,7 @@ Report 50026 "TT Standard Sales - Quote TP"
                     column(UnitPrice_Lbl; 'Unit Price')
                     {
                     }
-                    column(UnitOfMeasure; "Unit of Measure")
+                    column(UnitOfMeasure; UnitOfMeasureTranslation)
                     {
                     }
                     column(UnitOfMeasure_Lbl; 'Unit')
@@ -603,6 +603,8 @@ Report 50026 "TT Standard Sales - Quote TP"
                     }
 
                     trigger OnAfterGetRecord()
+                    var
+                        UnitOfMeasureTrans: Record "Unit of Measure Translation";
                     begin
                         PostedShipmentDate := 0D;
 
@@ -631,6 +633,12 @@ Report 50026 "TT Standard Sales - Quote TP"
                         if (Line.Type = Line.Type::Item) or (Line.Type = Line.Type::Resource) then
                             //+HF001
                             Line_Lfd += 1; //G-ERP.KBS 2018-06-05
+
+                        UnitOfMeasureTranslation := '';
+                        if UnitOfMeasureTrans.Get("Unit of Measure", 'ENU') then
+                            UnitOfMeasureTranslation := UnitOfMeasureTrans.Description
+                        else
+                            UnitOfMeasureTranslation := "Unit of Measure";
                     end;
 
                     trigger OnPreDataItem()
@@ -1502,6 +1510,7 @@ Report 50026 "TT Standard Sales - Quote TP"
         Text_AngebotAnschreiben3: label 'We assume that you are authorized to conclude the contract as a proxy. In case we have any outstanding claims under this contract against the ship owning company and/or the bareboat charterer you %1, shall be liable as our co-debtor beside the ship owning company and the bareboat charterer.';
         Line_Lfd: Integer;
         LineDiscountCaption: label 'Discount %';
+        UnitOfMeasureTranslation: Text;
 
     local procedure InitLogInteraction()
     begin
