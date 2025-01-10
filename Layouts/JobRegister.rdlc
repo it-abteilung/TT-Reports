@@ -74,7 +74,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =First(Fields!Job_Ledger_Entry__Posting_Date_Caption.Value)</Value>
+                                    =First(Fields!Job_Ledger_Entry__Posting_Date_Caption.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -105,7 +105,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =First(Fields!Job_Ledger_Entry__Job_No__Caption.Value)</Value>
+                                    =First(Fields!Job_Ledger_Entry__Job_No__Caption.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -137,7 +137,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =First(Fields!Job_Ledger_Entry_TypeCaption.Value)</Value>
+                                    =First(Fields!Job_Ledger_Entry_TypeCaption.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -167,7 +167,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =First(Fields!Job_Ledger_Entry__No__Caption.Value)</Value>
+                                    =First(Fields!Job_Ledger_Entry__No__Caption.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -228,7 +228,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =First(Fields!Job_Ledger_Entry_QuantityCaption.Value)</Value>
+                                    =First(Fields!Job_Ledger_Entry_QuantityCaption.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -260,7 +260,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Left(First(Fields!Job_Ledger_Entry__Unit_of_Measure_Code_Caption.Value),18)</Value>
+                                    =Left(First(Fields!Job_Ledger_Entry__Unit_of_Measure_Code_Caption.Value),18)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -290,7 +290,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =First(Fields!Job_Ledger_Entry__Total_Cost__LCY__Caption.Value)</Value>
+                                    =First(Fields!Job_Ledger_Entry__Total_Cost__LCY__Caption.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -322,7 +322,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =First(Fields!Job_Ledger_Entry__Line_Amount__LCY__Caption.Value)</Value>
+                                    =First(Fields!Job_Ledger_Entry__Line_Amount__LCY__Caption.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -826,7 +826,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!Job_Register__No__Caption.Value</Value>
+                                    =Fields!Job_Register__No__Caption.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -858,7 +858,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!Job_Register__No__.Value</Value>
+                                    =Fields!Job_Register__No__.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1213,7 +1213,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!Job_Ledger_Entry__Posting_Date_.Value</Value>
+                                    =Fields!Job_Ledger_Entry__Posting_Date_.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <Format>d</Format>
@@ -1240,7 +1240,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!Job_Ledger_Entry__Job_No__.Value</Value>
+                                    =Fields!Job_Ledger_Entry__Job_No__.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                   </Style>
@@ -1271,7 +1271,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!Job_Ledger_Entry_Type.Value</Value>
+                                    =Fields!Job_Ledger_Entry_Type.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                   </Style>
@@ -1298,7 +1298,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!Job_Ledger_Entry__No__.Value</Value>
+                                    =Fields!Job_Ledger_Entry__No__.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                   </Style>
@@ -1355,11 +1355,11 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!Job_Ledger_Entry_Quantity.Value</Value>
+                                    =Fields!Job_Ledger_Entry_Quantity.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <Format>
-                                                                            =Fields!Job_Ledger_Entry_QuantityFormat.Value</Format>
+                                      =Fields!Job_Ledger_Entry_QuantityFormat.Value</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1384,7 +1384,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!Job_Ledger_Entry__Unit_of_Measure_Code_.Value</Value>
+                                    =Fields!Job_Ledger_Entry__Unit_of_Measure_Code_.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                   </Style>
@@ -1414,11 +1414,11 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!Job_Ledger_Entry__Total_Cost__LCY__.Value</Value>
+                                    =Fields!Job_Ledger_Entry__Total_Cost__LCY__.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <Format>
-                                                                            =Fields!Job_Ledger_Entry__Total_Cost__LCY__Format.Value</Format>
+                                      =Fields!Job_Ledger_Entry__Total_Cost__LCY__Format.Value</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1444,11 +1444,11 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!Job_Ledger_Entry__Line_Amount__LCY__.Value</Value>
+                                    =Fields!Job_Ledger_Entry__Line_Amount__LCY__.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <Format>
-                                                                            =Fields!Job_Ledger_Entry__Line_Amount__LCY__Format.Value</Format>
+                                      =Fields!Job_Ledger_Entry__Line_Amount__LCY__Format.Value</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1504,7 +1504,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!CurrReport_PAGENOCaption.Value</Value>
+                                    =Fields!CurrReport_PAGENOCaption.Value</Value>
                                   <Style>
                                     <Color>#ff0000</Color>
                                   </Style>
@@ -1536,7 +1536,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!Job_RegisterCaption.Value</Value>
+                                    =Fields!Job_RegisterCaption.Value</Value>
                                   <Style>
                                     <Color>#ff0000</Color>
                                   </Style>
@@ -1567,7 +1567,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Fields!FORMAT_TODAY_0_4_.Value</Value>
+                                    =Fields!FORMAT_TODAY_0_4_.Value</Value>
                                   <Style>
                                     <Color>#ff0000</Color>
                                   </Style>
@@ -2599,12 +2599,12 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Sum(Fields!Job_Ledger_Entry___Total_Cost__LCY__.Value)</Value>
+                                    =Sum(Fields!Job_Ledger_Entry___Total_Cost__LCY__.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>
-                                                                            =First(Fields!Job_Ledger_Entry___Total_Cost__LCY__Format.Value)</Format>
+                                      =First(Fields!Job_Ledger_Entry___Total_Cost__LCY__Format.Value)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2630,12 +2630,12 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Sum(Fields!Job_Ledger_Entry___Line_Amount__LCY__.Value)</Value>
+                                    =Sum(Fields!Job_Ledger_Entry___Line_Amount__LCY__.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>
-                                                                            =First(Fields!Job_Ledger_Entry___Line_Amount__LCY__Format.Value)</Format>
+                                      =First(Fields!Job_Ledger_Entry___Line_Amount__LCY__Format.Value)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2770,7 +2770,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =First(Fields!Job_Ledger_Entry___Total_Cost__LCY__Caption.Value)</Value>
+                                    =First(Fields!Job_Ledger_Entry___Total_Cost__LCY__Caption.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2958,12 +2958,12 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Sum(Fields!Job_Ledger_Entry___Total_Cost__LCY__.Value)</Value>
+                                    =Sum(Fields!Job_Ledger_Entry___Total_Cost__LCY__.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>
-                                                                            =First(Fields!Job_Ledger_Entry___Total_Cost__LCY__Format.Value)</Format>
+                                      =First(Fields!Job_Ledger_Entry___Total_Cost__LCY__Format.Value)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2990,12 +2990,12 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>
-                                                                        =Sum(Fields!Job_Ledger_Entry___Line_Amount__LCY__.Value)</Value>
+                                    =Sum(Fields!Job_Ledger_Entry___Line_Amount__LCY__.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>
-                                                                            =First(Fields!Job_Ledger_Entry___Line_Amount__LCY__Format.Value)</Format>
+                                      =First(Fields!Job_Ledger_Entry___Line_Amount__LCY__Format.Value)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3158,7 +3158,7 @@
                 <TextRuns>
                   <TextRun>
                     <Value>
-                                            =First(Fields!Job_Register__TABLECAPTION__________JobRegFilter.Value)</Value>
+                      =First(Fields!Job_Register__TABLECAPTION__________JobRegFilter.Value)</Value>
                     <Style>
                       <FontSize>7pt</FontSize>
                     </Style>
@@ -3320,7 +3320,7 @@
               <ZIndex>4</ZIndex>
               <Visibility>
                 <Hidden>=IIF(ReportItems!CurrReport_PAGENOCaption.Value =
-                                    "",TRUE,FALSE)</Hidden>
+                  "",TRUE,FALSE)</Hidden>
               </Visibility>
               <DataElementOutput>NoOutput</DataElementOutput>
               <Style>
@@ -3351,7 +3351,7 @@
               <ZIndex>5</ZIndex>
               <Visibility>
                 <Hidden>=IIF(ReportItems!CurrReport_PAGENOCaption.Value =
-                                    "",TRUE,FALSE)</Hidden>
+                  "",TRUE,FALSE)</Hidden>
               </Visibility>
               <DataElementOutput>NoOutput</DataElementOutput>
               <Style>
@@ -3373,45 +3373,45 @@
     </ReportSection>
   </ReportSections>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
-        if Value = 0 then
-        Return ""
-        end if
-        Return Value
-        End Function
+    if Value = 0 then
+    Return ""
+    end if
+    Return Value
+    End Function
 
-        Public Function BlankPos(ByVal Value As Decimal)
-        if Value &gt; 0 then
-        Return ""
-        end if
-        Return Value
-        End Function
+    Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+    Return ""
+    end if
+    Return Value
+    End Function
 
-        Public Function BlankZeroAndPos(ByVal Value As Decimal)
-        if Value &gt;= 0 then
-        Return ""
-        end if
-        Return Value
-        End Function
+    Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+    Return ""
+    end if
+    Return Value
+    End Function
 
-        Public Function BlankNeg(ByVal Value As Decimal)
-        if Value &lt; 0 then
-        Return ""
-        end if
-        Return Value
-        End Function
+    Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+    Return ""
+    end if
+    Return Value
+    End Function
 
-        Public Function BlankNegAndZero(ByVal Value As Decimal)
-        if Value &lt;= 0 then
-        Return ""
-        end if
-        Return Value
-        End Function
+    Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+    Return ""
+    end if
+    Return Value
+    End Function
 
-        Public Function CutOnlyFirstLetters(Stroka as Object) as Object
-        Return Left(Cstr(Choose(1, Split(Cstr(Stroka) )) ),2)+
-        Left(Cstr(Choose(2,Split(Cstr(Stroka))) ),2)
-        End Function
-    </Code>
+    Public Function CutOnlyFirstLetters(Stroka as Object) as Object
+    Return Left(Cstr(Choose(1, Split(Cstr(Stroka) )) ),2)+
+    Left(Cstr(Choose(2,Split(Cstr(Stroka))) ),2)
+    End Function
+  </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
@@ -3538,6 +3538,36 @@
         </Field>
         <Field Name="Job_Ledger_Entry__Posting_Date_">
           <DataField>Job_Ledger_Entry__Posting_Date_</DataField>
+        </Field>
+        <Field Name="TotalPrice">
+          <DataField>TotalPrice</DataField>
+        </Field>
+        <Field Name="TotalPriceFormat">
+          <DataField>TotalPriceFormat</DataField>
+        </Field>
+        <Field Name="Total_Price__LCY_">
+          <DataField>Total_Price__LCY_</DataField>
+        </Field>
+        <Field Name="Total_Price__LCY_Format">
+          <DataField>Total_Price__LCY_Format</DataField>
+        </Field>
+        <Field Name="Total_Cost">
+          <DataField>Total_Cost</DataField>
+        </Field>
+        <Field Name="Total_CostFormat">
+          <DataField>Total_CostFormat</DataField>
+        </Field>
+        <Field Name="Total_Cost__LCY_">
+          <DataField>Total_Cost__LCY_</DataField>
+        </Field>
+        <Field Name="Total_Cost__LCY_Format">
+          <DataField>Total_Cost__LCY_Format</DataField>
+        </Field>
+        <Field Name="Direct_Unit_Cost__LCY_">
+          <DataField>Direct_Unit_Cost__LCY_</DataField>
+        </Field>
+        <Field Name="Direct_Unit_Cost__LCY_Format">
+          <DataField>Direct_Unit_Cost__LCY_Format</DataField>
         </Field>
         <Field Name="Description">
           <DataField>Description</DataField>

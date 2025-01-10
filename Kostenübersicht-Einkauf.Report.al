@@ -117,7 +117,7 @@ Report 50022 "Kostenübersicht - Einkauf"
             dataitem("Job Ledger Entry"; "Job Ledger Entry")
             {
                 DataItemLink = "Job No." = field("No.");
-                DataItemTableView = sorting("Job No.", "Job Task No.", "Entry Type", "Posting Date") where(Type = const(Item), "Source Code" = filter(<> 'EINKAUF'));
+                DataItemTableView = sorting("Job No.", "Job Task No.", "Entry Type", "Posting Date") where(Type = filter(Item | "G/L Account"), "Source Code" = filter(<> 'EINKAUF'));
                 column(Lagerwert; "Job Ledger Entry"."Total Cost (LCY)")
                 {
                 }
@@ -250,11 +250,8 @@ Report 50022 "Kostenübersicht - Einkauf"
                                 PurchLine_temp.Amount := l_amountVAT - l_amount;
                                 PurchLine_temp.Insert;
                             end;
-
-
                         end;
                     end;                                 // G-ERP.AG 2021-06-24
-
                 end;
             }
             dataitem("Purchase Header"; "Purchase Header")
@@ -392,9 +389,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     PurchLine_temp.Insert;
                                 end;
                             end;
-
                         end;
-
                     end;
                 }
 
@@ -557,7 +552,11 @@ Report 50022 "Kostenübersicht - Einkauf"
                         if "Purch. Inv. Line"."Document No." <> LetzteBelegnummer then begin
                             waehrungsfaktor := 1;
                             if l_PurchInvHeader.Get("Purch. Inv. Line"."Document No.") then
-                                waehrungsfaktor := l_PurchInvHeader."Currency Factor";
+                                // Bei einige Gebuchten Einkaufsrechnungen war ein falscher Currency Factor hinterlegt, konnte nicht geändert werden
+                                if l_PurchInvHeader."Currency Factor" <> 130.477431234563572 then
+                                    waehrungsfaktor := l_PurchInvHeader."Currency Factor"
+                                else
+                                    waehrungsfaktor := 0;
                             if waehrungsfaktor = 0 then
                                 waehrungsfaktor := 1;
                             LetzteBelegnummer := "Purch. Inv. Line"."Document No.";
@@ -692,8 +691,13 @@ Report 50022 "Kostenübersicht - Einkauf"
 
                         if "Document No." <> LetzteBelegnummer then begin
                             waehrungsfaktor := 1;
-                            if l_PurchInvHeader.Get("Document No.") then
-                                waehrungsfaktor := l_PurchInvHeader."Currency Factor";
+                            if l_PurchInvHeader.Get("Document No.") then begin
+                                // Bei einige Gebuchten Einkaufsrechnungen war ein falscher Currency Factor hinterlegt, konnte nicht geändert werden
+                                if l_PurchInvHeader."Currency Factor" <> 130.477431234563572 then
+                                    waehrungsfaktor := l_PurchInvHeader."Currency Factor"
+                                else
+                                    waehrungsfaktor := 0;
+                            end;
                             if waehrungsfaktor = 0 then
                                 waehrungsfaktor := 1;
                             LetzteBelegnummer := "Document No.";
@@ -746,8 +750,8 @@ Report 50022 "Kostenübersicht - Einkauf"
                             END;
                             */
 
-                            if l_amount <> 0 then
-                                drucken := true;
+                            // if l_amount <> 0 then
+                            drucken := true;
                             DrNummer := l_PurchInvHeader."Order No.";
                             DrDatum := l_PurchInvHeader."Order Date";
                             DrName := l_PurchInvHeader."Buy-from Vendor Name";
@@ -870,7 +874,6 @@ Report 50022 "Kostenübersicht - Einkauf"
                         ExcelÜbergabe(RowNo, 8, l_PurchInvHeader."Vendor Invoice No.", true, false, '@');
                         ExcelÜbergabe(RowNo, 9, Format(l_PurchInvHeader.Leistungsart), true, false, '@');
                     end;
-
 
                     if PurchInvLine_temp."Direct Unit Cost" <> 0 then
                         drucken := true;
@@ -1006,11 +1009,8 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     PurchCrMemoLine_temp.Insert;
                                 end;
                             end;
-
-
                         end;
                     end;                        // G-ERP.AG 2021-06-24
-
                 end;
             }
             dataitem("Purch. Cr. Memo Hdr."; "Purch. Cr. Memo Hdr.")

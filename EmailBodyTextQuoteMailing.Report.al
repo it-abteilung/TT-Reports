@@ -1,7 +1,7 @@
 report 50147 "Email Body Text PurchQuote"
 {
     DefaultLayout = Word;
-    WordLayout = 'EmailBodyTextPurchQuote.docx';
+    WordLayout = './Layouts/EmailBodyTextPurchQuote.docx';
     dataset
     {
         dataitem("Purchase Header"; "Purchase Header")

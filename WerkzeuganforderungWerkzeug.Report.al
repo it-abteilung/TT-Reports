@@ -47,6 +47,9 @@ Report 50066 "Werkzeuganforderung Werkzeug"
             column(Kopf_EndingDate; Reparaturende)
             {
             }
+            column(Kopf_Fertigstellung; Fertigstellung)
+            {
+            }
             column(Kopf_AbholungAm; "Abholung am")
             {
             }
@@ -228,7 +231,8 @@ Report 50066 "Werkzeuganforderung Werkzeug"
         SchiffCaption = 'Schiff/Objekt';
         Liegeplatz_ReparaturortCaption = 'Liegeplatz / Reparaturort';
         ReparaturbeginnCaption = 'Reparaturbeginn';
-        FertigstellungCaption = 'Fertigstellung';
+        ReparaturendeCaption = 'Reparaturende';
+        FertigstellungCaption = 'Fertigstellung Werkzeuge Lager';
         FreigabeSchweißzusätzeCaption = 'Freigabe Schweißzusätze:';
         Abholung_TransportCaption = 'Abholung/Transport:';
         TransportmittelCaption = 'Transportmittel:';

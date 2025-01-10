@@ -1133,7 +1133,6 @@ Report 50001 "TT Purchase - Quote RTC"
                             Durchwahl2 := ' (-' + Resource.Durchwahlnummer + ')';
                     end;
                 end;
-
             end;
 
             trigger OnPostDataItem()
@@ -1255,7 +1254,8 @@ Report 50001 "TT Purchase - Quote RTC"
         trigger OnOpenPage()
         begin
             ArchiveDocument := ArchiveManagement.PurchaseDocArchiveGranule;
-            LogInteraction := SegManagement.FindInteractTmplCode(13) <> '';
+            // LogInteraction := SegManagement.FindInteractTmplCode(13) <> ''; Wird nicht mehr unterstützt.
+            LogInteraction := SegManagement.FindInteractionTemplateCode("Interaction Log Entry Document Type"::"Purch. Ord.") <> '';
 
             ArchiveDocumentEnable := ArchiveDocument;
             LogInteractionEnable := LogInteraction;

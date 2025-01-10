@@ -5,7 +5,7 @@ Report 50052 "Austattungsposten füllen"
 
     dataset
     {
-        dataitem(Ausstattung_Posten;Ausstattung_Posten)
+        dataitem(Ausstattung_Posten; Ausstattung_Posten)
         {
             column(ReportForNavId_1000000000; 1000000000)
             {
@@ -14,8 +14,8 @@ Report 50052 "Austattungsposten füllen"
             trigger OnAfterGetRecord()
             begin
                 if Ausstattung_Posten.Buchungsdatum = 0DT then begin
-                  Ausstattung_Posten.Buchungsdatum := CreateDatetime(20170815D, 150000T);
-                  Ausstattung_Posten.Modify;
+                    Ausstattung_Posten.Buchungsdatum := CreateDatetime(20170815D, 150000T);
+                    Ausstattung_Posten.Modify;
                 end;
             end;
 
@@ -33,11 +33,9 @@ Report 50052 "Austattungsposten füllen"
 
     requestpage
     {
-
         layout
         {
         }
-
         actions
         {
         }

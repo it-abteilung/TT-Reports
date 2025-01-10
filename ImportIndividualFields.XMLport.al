@@ -433,10 +433,11 @@ XmlPort 50020 ImportIndividualFields
                 {
                     MinOccurs = Zero;
                 }
-                fieldelement(AttachedtoLineNo; JobPlanningLine."Attached to Line No.")
-                {
-                    MinOccurs = Zero;
-                }
+                // TODO remove it for 24.1.16924.0
+                // fieldelement(AttachedtoLineNo; JobPlanningLine."Attached to Line No.")
+                // {
+                //     MinOccurs = Zero;
+                // }
                 fieldelement(Pos; JobPlanningLine.Pos)
                 {
                     MinOccurs = Zero;

@@ -82,7 +82,6 @@ report 50073 "Package Tree List"
                     PackageTreeTemp.Next();
 
                 PackageTreeTemp."Delta Quantity" := PackageTreeTemp."Packed Quantity" - PackageTreeTemp."Requested Quantity";
-
             end;
         }
     }
@@ -113,7 +112,6 @@ report 50073 "Package Tree List"
         actions
         {
         }
-
     }
 
     var
@@ -224,7 +222,6 @@ report 50073 "Package Tree List"
                     PackageTreeTemp."Requested Quantity" := ItemDict.Get(Itemkey);
                     PackageTreeTemp."On Tool Request" := true;
                     PackageTreeTemp.Insert(true);
-
 
                     // FIND Bin Quantity
                     WarehouseEntry.Reset();

@@ -3819,7 +3819,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Werkzeuganforderung Werkzeug - ReportLabel ErstellerCaption</note>
         </trans-unit>
         <trans-unit id="Report 1080435125 - ReportLabel 3399066189" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fertigstellung</source>
+          <source>Fertigstellung Werkzeuge Lager</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Werkzeuganforderung Werkzeug - ReportLabel FertigstellungCaption</note>
         </trans-unit>
@@ -3902,6 +3902,11 @@
           <source>Reparaturbeginn</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Werkzeuganforderung Werkzeug - ReportLabel ReparaturbeginnCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 1080435125 - ReportLabel 722869838" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reparaturende</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Werkzeuganforderung Werkzeug - ReportLabel ReparaturendeCaption</note>
         </trans-unit>
         <trans-unit id="Report 1080435125 - ReportLabel 2367550717" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reparaturleiter</source>

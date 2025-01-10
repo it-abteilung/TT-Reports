@@ -14,7 +14,7 @@ Report 50026 "TT Standard Sales - Quote TP"
             DataItemTableView = sorting("Document Type", "No.") where("Document Type" = const(Quote));
             RequestFilterFields = "No.", "Sell-to Customer No.", "No. Printed";
             RequestFilterHeading = 'Sales Quote';
-            column(ExternalDocNo; Job."External Document No.")
+            column(ExternalDocNo; "External Document No.")                //Vorher Job."External Document No."
             {
             }
             column(CompanyAddress1; CompanyAddr[1])
@@ -129,6 +129,13 @@ Report 50026 "TT Standard Sales - Quote TP"
             {
             }
             column(CompanyLegalStatement; GetLegalStatement)
+            {
+            }
+            column(FirstSign; FirstSign.Content)
+            {
+            }
+
+            column(SecondSign; SecondSign.Content)
             {
             }
             column(CustomerAddress1; CustAddr[1])
@@ -467,6 +474,7 @@ Report 50026 "TT Standard Sales - Quote TP"
             column(CurrencyCode; "Currency Code")
             {
             }
+
             dataitem(CopyLoop; "Integer")
             {
                 DataItemTableView = sorting(Number);
@@ -639,6 +647,7 @@ Report 50026 "TT Standard Sales - Quote TP"
                             UnitOfMeasureTranslation := UnitOfMeasureTrans.Description
                         else
                             UnitOfMeasureTranslation := "Unit of Measure";
+
                     end;
 
                     trigger OnPreDataItem()
@@ -995,6 +1004,8 @@ Report 50026 "TT Standard Sales - Quote TP"
                 ArchiveManagement: Codeunit ArchiveManagement;
                 SalesPost: Codeunit "Sales-Post";
                 "Sell-to Country": Text[50];
+                Purchaser: Record "Salesperson/Purchaser";
+                EmployeeSignStore: Record "Employee Sign Store";
             begin
                 FirstLineHasBeenOutput := false;
                 Clear(Line);
@@ -1259,6 +1270,27 @@ Report 50026 "TT Standard Sales - Quote TP"
                 TotalAmount := 0;
                 TotalAmountVAT := 0;
                 TotalAmountInclVAT := 0;
+
+                if "Status Approval 1" then begin
+                    Purchaser.SetRange(Code, Unterschriftscode);
+                    if Purchaser.FindFirst() then begin
+                        EmployeeSignStore.SetRange("User Name", Purchaser."User ID");
+                        if EmployeeSignStore.FindFirst() then
+                            if FirstSign.Get(EmployeeSignStore.Signature.MediaId) then
+                                FirstSign.CalcFields(Content);
+                    end;
+                end;
+                Purchaser.Reset();
+                if "Status Approval 2" then begin
+                    EmployeeSignStore.Reset();
+                    Purchaser.SetRange(Code, "Unterschriftscode 2");
+                    if Purchaser.FindFirst() then begin
+                        EmployeeSignStore.SetRange("User Name", Purchaser."User ID");
+                        if EmployeeSignStore.FindFirst() then
+                            if SecondSign.Get(EmployeeSignStore.Signature.MediaId) then
+                                SecondSign.CalcFields(Content);
+                    end;
+                end;
             end;
         }
     }
@@ -1511,10 +1543,13 @@ Report 50026 "TT Standard Sales - Quote TP"
         Line_Lfd: Integer;
         LineDiscountCaption: label 'Discount %';
         UnitOfMeasureTranslation: Text;
+        FirstSign: Record "Tenant Media";
+        SecondSign: Record "Tenant Media";
 
     local procedure InitLogInteraction()
     begin
-        LogInteraction := SegManagement.FindInteractTmplCode(1) <> '';
+        // LogInteraction := SegManagement.FindInteractTmplCode(1) <> ''; Wird nicht mehr unterstützt.
+        LogInteraction := SegManagement.FindInteractionTemplateCode("Interaction Log Entry Document Type"::"Sales Qte.") <> '';
     end;
 
     local procedure DocumentCaption(): Text[250]

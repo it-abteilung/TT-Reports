@@ -22,6 +22,18 @@ Report 50023 "Erlöse Projekte"
                 JobDiscount_l: Decimal;
                 JobSum_l: Decimal;
                 JobSumDiscount_l: Decimal;
+
+                PurchaseHeaderExt: Record "Purchase Header";
+                PurchInvHeaderExtTemp: Record "Purch. Inv. Header";
+                PurchInvHeaderExt: Record "Purch. Inv. Header" temporary;
+                PurchInvLineExt: Record "Purch. Inv. Line";
+                PurchCrMemoHdrExt: Record "Purch. Cr. Memo Hdr.";
+                PurchCrMemoHdrExtTemp: Record "Purch. Cr. Memo Hdr." temporary;
+                PurchCrMemoLineExt: Record "Purch. Cr. Memo Line";
+                QuoteCounter: Integer;
+                OrderCounter: Integer;
+                InvoiceCounter: Integer;
+                CreditCounter: Integer;
             begin
                 CalcFields("EK Material Ist", "EK Fremdlieferung Ist", "EK Fremdleistung Ist", "Lagermaterial Ist", "EK Transporte Ist",
                            "EK Hotelkosten Ist", "EK Flugkosten Ist", "EK Auslöse Ist", "EK Fremdlieferung Ist Gut", "EK Fremdleistung Ist Gut",
@@ -156,6 +168,7 @@ Report 50023 "Erlöse Projekte"
                 PersonalIst := 0;   //G-ERP.RS 2019-08-15 Anfrage#233661
                 HotelIst := 0;        //G-ERP.RS 2019-09-11 Anfrage#233661
                 ReisekostenIst := 0;  //G-ERP.RS 2019-09-11 Anfrage#233661
+                "AuslöseLeist" := 0;
                 Clear(PurchInvLine);
                 case SumProject of
                     true:
@@ -461,6 +474,68 @@ Report 50023 "Erlöse Projekte"
                     LiquidityPlanning_l.CalcSums(Amount);
                 // G-ERP.AG 2021-05-12-
 
+                QuoteCounter := 0;
+                PurchaseHeaderExt.SetRange("Document Type", PurchaseHeaderExt."document type"::Quote);
+                case SumProject of
+                    true:
+                        PurchaseHeaderExt.SetFilter("Job No.", '%1', "No." + '*');
+                    false:
+                        PurchaseHeaderExt.SetRange("Job No.", "No.");
+                end;
+                QuoteCounter := PurchaseHeaderExt.Count();
+
+                OrderCounter := 0;
+                PurchaseHeaderExt.SetRange("Document Type", PurchaseHeaderExt."document type"::Order);
+                case SumProject of
+                    true:
+                        PurchaseHeaderExt.SetFilter("Job No.", '%1', "No." + '*');
+                    false:
+                        PurchaseHeaderExt.SetRange("Job No.", "No.");
+                end;
+                OrderCounter := PurchaseHeaderExt.Count();
+
+                InvoiceCounter := 0;
+                case SumProject of
+                    true:
+                        PurchInvLineExt.SetFilter("Job No.", '%1', "No." + '*');
+                    false:
+                        PurchInvLineExt.SetRange("Job No.", "No.");
+                end;
+                if PurchInvLineExt.FindSet then
+                    repeat
+                        if PurchaseHeaderExt.Get(PurchInvLineExt."Document No.") then begin
+                            PurchInvHeaderExtTemp := PurchInvHeaderExt;
+                            if PurchInvHeaderExtTemp.Insert then;
+                        end;
+                    until PurchInvLineExt.Next = 0;
+                case SumProject of
+                    true:
+                        PurchInvHeaderExtTemp.SetFilter("Job No.", '%1', "No." + '*');
+                    false:
+                        PurchInvHeaderExtTemp.SetRange("Job No.", "No.");
+                end;
+                InvoiceCounter := PurchInvHeaderExtTemp.Count();
+
+                CreditCounter := 0;
+                case SumProject of
+                    true:
+                        PurchCrMemoLineExt.SetFilter("Job No.", '%1', "No." + '*');
+                    false:
+                        PurchCrMemoLineExt.SetRange("Job No.", "No.");
+                end;
+                if PurchCrMemoLineExt.FindSet then
+                    repeat
+                        if PurchCrMemoHdrExt.Get(PurchCrMemoLineExt."Document No.") then begin
+                            PurchCrMemoHdrExtTemp := PurchCrMemoHdrExt;
+                            if PurchCrMemoHdrExtTemp.Insert then;
+                        end;
+                    until PurchCrMemoLineExt.Next = 0;
+                CreditCounter := PurchCrMemoHdrExtTemp.Count();
+
+
+                CLEAR(JobPlanningLine);
+                JobPlanningLine.SETRANGE("Job No.", "No.");
+                JobPlanningLine.CALCSUMS(Quantity, Lohnkosten, Materialkosten, Fremdarbeitenkosten, Fremdlieferungskosten, Transportkosten, Hotelkosten, Flugkosten, Auslöse);
 
                 // TempExcelBuffer.NewRow();
                 RowNo += 1;
@@ -509,60 +584,96 @@ Report 50023 "Erlöse Projekte"
                 // O
                 ExcelUebergabeFormula(RowNo, 15, '=M' + Format(RowNo) + '-N' + Format(RowNo), false, false, '#,##0.00');
                 // TempExcelBuffer.AddColumn(JobPlanningLine."EK-Transport" - TranspLeist, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
-                // P
-                ExcelUebergabe(RowNo, 16, Format(JobSumDiscount_l / 101.5 * 1.5), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(JobSumDiscount_l / 101.5 * 1.5, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
-                // Q
-                ExcelUebergabe(RowNo, 17, Format(JobPlanningLine.Quantity), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(JobPlanningLine.Quantity, false, '', false, false, false, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
-                // R
-                ExcelUebergabe(RowNo, 18, Format(JobPlanningLine.Lohnkosten), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(JobPlanningLine.Lohnkosten, false, '', false, false, false, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
-                // S
-                ExcelUebergabe(RowNo, 19, Format(ArbeitsstdGesamtIst), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(ArbeitsstdGesamtIst, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-                // T
-                ExcelUebergabe(RowNo, 20, Format(ArbeitsstdGesamtIstFremd_g), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(ArbeitsstdGesamtIstFremd_g, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-                // U
-                ExcelUebergabe(RowNo, 21, Format(Lohnkosten_IST), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(Lohnkosten_IST, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
-                // V
-                ExcelUebergabe(RowNo, 22, Format(PersonalIst), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(PersonalIst, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
-                // W
-                ExcelUebergabeFormula(RowNo, 23, '=Q' + Format(RowNo) + '-S' + Format(RowNo) + '-T' + Format(RowNo), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(JobPlanningLine.Quantity - ArbeitsstdGesamtIst - ArbeitsstdGesamtIstFremd_g, false, '#.##0,00_ ;-#.##0,00 ', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
-                // X
-                ExcelUebergabeFormula(RowNo, 24, '=R' + Format(RowNo) + '-U' + Format(RowNo) + '-V' + Format(RowNo), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(JobPlanningLine.Lohnkosten - Lohnkosten_IST - PersonalIst, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // 03.2024 CN - start
+                //P Hotel Soll
+                ExcelUebergabe(RowNo, 16, Format(JobPlanningLine."EK-Hotelkosten"), false, false, '#,##0.00');
+                //Q Hotel Ist
+                ExcelUebergabe(RowNo, 17, format(HotelIst), false, false, '#,##0.00');
+                //R Hotel Diff
+                ExcelUebergabeFormula(RowNo, 18, '=P' + Format(RowNo) + '-Q' + Format(RowNo), false, false, '#,##0.00');
+                //S Reise Soll
+                ExcelUebergabe(RowNo, 19, Format(JobPlanningLine."EK-Reisekosten"), false, false, '#,##0.00');
+                //T Reise Ist
+                ExcelUebergabe(RowNo, 20, format(ReisekostenIst), false, false, '#,##0.00');
+                //U Reise Diff
+                ExcelUebergabeFormula(RowNo, 21, '=S' + Format(RowNo) + '-T' + Format(RowNo), false, false, '#,##0.00');
+                //V Auslöse Soll
+                ExcelUebergabe(RowNo, 22, Format(JobPlanningLine."EK-Auslöse"), false, false, '#,##0.00');
+                //W Auslöse Ist
+                ExcelUebergabe(RowNo, 23, format("AuslöseLeist"), false, false, '#,##0.00');
+                //X Auslöse Diff
+                ExcelUebergabeFormula(RowNo, 24, '=U' + Format(RowNo) + '-V' + Format(RowNo), false, false, '#,##0.00');
+                // 03.2024 CN - ende
                 // Y
-                ExcelUebergabe(RowNo, 25, Format(GesamtSOLL), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(GesamtSOLL, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ExcelUebergabe(RowNo, 25, Format(JobSumDiscount_l / 101.5 * 1.5), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(JobSumDiscount_l / 101.5 * 1.5, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
                 // Z
-                ExcelUebergabe(RowNo, 26, Format(GesamtIST), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(GesamtIST, false, '', false, false, false, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
+                ExcelUebergabe(RowNo, 26, Format(JobPlanningLine.Quantity), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(JobPlanningLine.Quantity, false, '', false, false, false, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
                 // AA
-                ExcelUebergabeFormula(RowNo, 27, '=Y' + Format(RowNo) + '-Z' + Format(RowNo), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(GesamtSOLL - GesamtIST, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ExcelUebergabe(RowNo, 27, Format(JobPlanningLine.Lohnkosten), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(JobPlanningLine.Lohnkosten, false, '', false, false, false, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
                 // AB
-                ExcelUebergabe(RowNo, 28, Format(JobSumDiscount_l), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(JobSumDiscount_l, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ExcelUebergabe(RowNo, 28, Format(ArbeitsstdGesamtIst), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(ArbeitsstdGesamtIst, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
                 // AC
-                ExcelUebergabe(RowNo, 29, Format(LiquidityPlanning_l.Amount), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(LiquidityPlanning_l.Amount, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ExcelUebergabe(RowNo, 29, Format(ArbeitsstdGesamtIstFremd_g), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(ArbeitsstdGesamtIstFremd_g, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
                 // AD
-                ExcelUebergabeFormula(RowNo, 30, '=AB' + Format(RowNo) + '-AC' + Format(RowNo), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(JobSumDiscount_l - LiquidityPlanning_l.Amount, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ExcelUebergabe(RowNo, 30, Format(Lohnkosten_IST), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(Lohnkosten_IST, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
                 // AE
-                ExcelUebergabeFormula(RowNo, 31, '=AB' + Format(RowNo) + '-Z' + Format(RowNo), false, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn(JobSumDiscount_l - GesamtIST, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ExcelUebergabe(RowNo, 31, Format(PersonalIst), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(PersonalIst, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
                 // AF
-                ExcelUebergabe(RowNo, 32, Format(Job.Status), false, false, '@');
-                // TempExcelBuffer.AddColumn(Job.Status, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+                ExcelUebergabeFormula(RowNo, 32, '=Z' + Format(RowNo) + '-AB' + Format(RowNo) + '-AC' + Format(RowNo), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(JobPlanningLine.Quantity - ArbeitsstdGesamtIst - ArbeitsstdGesamtIstFremd_g, false, '#.##0,00_ ;-#.##0,00 ', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
                 // AG
-                ExcelUebergabe(RowNo, 33, Format(JobType_g), false, false, '@');
+                ExcelUebergabeFormula(RowNo, 33, '=AA' + Format(RowNo) + '-AD' + Format(RowNo) + '-AE' + Format(RowNo), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(JobPlanningLine.Lohnkosten - Lohnkosten_IST - PersonalIst, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // AH
+                ExcelUebergabe(RowNo, 34, Format(GesamtSOLL), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(GesamtSOLL, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // AI
+                ExcelUebergabe(RowNo, 35, Format(GesamtIST), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(GesamtIST, false, '', false, false, false, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
+                // AJ
+                ExcelUebergabeFormula(RowNo, 36, '=AH' + Format(RowNo) + '-AI' + Format(RowNo), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(GesamtSOLL - GesamtIST, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // AK
+                ExcelUebergabe(RowNo, 37, Format(JobSumDiscount_l), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(JobSumDiscount_l, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // AL
+                ExcelUebergabe(RowNo, 38, Format(LiquidityPlanning_l.Amount), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(LiquidityPlanning_l.Amount, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // AM
+                ExcelUebergabeFormula(RowNo, 39, '=AK' + Format(RowNo) + '-AL' + Format(RowNo), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(JobSumDiscount_l - LiquidityPlanning_l.Amount, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // AN
+                ExcelUebergabeFormula(RowNo, 40, '=AK' + Format(RowNo) + '-AI' + Format(RowNo), false, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn(JobSumDiscount_l - GesamtIST, false, '', false, false, false, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // AO
+                ExcelUebergabe(RowNo, 41, Format(Job.Status), false, false, '@');
+                // TempExcelBuffer.AddColumn(Job.Status, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+                // AP
+                ExcelUebergabe(RowNo, 42, Format(JobType_g), false, false, '@');
                 // TempExcelBuffer.AddColumn(JobType_g, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+                // 03.2024 CN - start
+                // AQ
+                ExcelUebergabe(RowNo, 43, Format(QuoteCounter), false, false, '@');
+                // AR     
+                ExcelUebergabe(RowNo, 44, Format(OrderCounter), false, false, '@');
+                // AS
+                ExcelUebergabe(RowNo, 45, Format(InvoiceCounter), false, false, '@');
+                // AT
+                ExcelUebergabe(RowNo, 46, Format(CreditCounter), false, false, '@');
+                // AU
+                ExcelUebergabe(RowNo, 47, Format(JobPlanningLine.Materialkosten), false, false, '@');
+                // AV
+                ExcelUebergabe(RowNo, 48, Format(JobPlanningLine.Fremdarbeitenkosten), false, false, '@');
+                // AW
+                ExcelUebergabe(RowNo, 49, Format(JobPlanningLine.Fremdlieferungskosten), false, false, '@');
+                // 03.2024 CN - ende
             end;
 
             trigger OnPreDataItem()
@@ -629,79 +740,130 @@ Report 50023 "Erlöse Projekte"
                 // O
                 ExcelUebergabe(RowNo, ColumnHeader, 'Differenz', true, true, '@');
                 ColumnHeader += 1;
-                // TempExcelBuffer.AddColumn('Differenz', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // P
+
+
+                // P 
+                ExcelUebergabe(RowNo, ColumnHeader, 'Hotel SOLL', true, true, '@');
+                ColumnHeader += 1;
+                // Q
+                ExcelUebergabe(RowNo, ColumnHeader, 'Hotel IST', true, true, '@');
+                ColumnHeader += 1;
+                // R
+                ExcelUebergabe(RowNo, ColumnHeader, 'Differenz', true, true, '@');
+                ColumnHeader += 1;
+                // S
+                ExcelUebergabe(RowNo, ColumnHeader, 'Reise SOLL', true, true, '@');
+                ColumnHeader += 1;
+                // T
+                ExcelUebergabe(RowNo, ColumnHeader, 'Reise IST', true, true, '@');
+                ColumnHeader += 1;
+                // U
+                ExcelUebergabe(RowNo, ColumnHeader, 'Differenz', true, true, '@');
+                ColumnHeader += 1;
+                // V
+                ExcelUebergabe(RowNo, ColumnHeader, 'Auslöse SOLL', true, true, '@');
+                ColumnHeader += 1;
+                // W
+                ExcelUebergabe(RowNo, ColumnHeader, 'Auslöse IST', true, true, '@');
+                ColumnHeader += 1;
+                // X
+                ExcelUebergabe(RowNo, ColumnHeader, 'Differenz', true, true, '@');
+                ColumnHeader += 1;
+
+
+                // Y
                 ExcelUebergabe(RowNo, ColumnHeader, '1,5% Versich.', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('1,5% Versich.', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // Q
+                // Z
                 ExcelUebergabe(RowNo, ColumnHeader, 'Stunden SOLL', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Stunden SOLL', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // R
+                // AA
                 ExcelUebergabe(RowNo, ColumnHeader, 'Lohnkosten SOLL', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Lohnkosten SOLL', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // S
+                // AB
                 ExcelUebergabe(RowNo, ColumnHeader, 'Arbeitsstunden Eigen IST', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Arbeitsstunden Eigen IST', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // T
+                // AC
                 ExcelUebergabe(RowNo, ColumnHeader, 'Arbeitsstunden Fremd IST', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Arbeitsstunden Fremd IST', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // U
+                // AD
                 ExcelUebergabe(RowNo, ColumnHeader, 'Lohnkosten Eigen IST', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Lohnkosten Eigen IST', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // V
+                // AE
                 ExcelUebergabe(RowNo, ColumnHeader, 'Lohnkosten Fremd IST', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Lohnkosten Fremd IST', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // W
+                // AF
                 ExcelUebergabe(RowNo, ColumnHeader, 'Differenz Stunden', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Differenz Stunden', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // X
+                // AG
                 ExcelUebergabe(RowNo, ColumnHeader, 'Differenz Lohnkosten', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Differenz Lohnkosten', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // Y
+                // AH
                 ExcelUebergabe(RowNo, ColumnHeader, 'Kosten SOLL', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Kosten SOLL', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // Z
+                // AI
                 ExcelUebergabe(RowNo, ColumnHeader, 'Kosten IST', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Kosten IST', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // AA
+                // AJ
                 ExcelUebergabe(RowNo, ColumnHeader, 'Differenz', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Differenz', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // AB
+                // AK
                 ExcelUebergabe(RowNo, ColumnHeader, 'Angebotssumme', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Angebotssumme', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // AC
+                // AL
                 ExcelUebergabe(RowNo, ColumnHeader, 'Abgerechnet', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Abgerechnet', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // AD
+                // AM
                 ExcelUebergabe(RowNo, ColumnHeader, 'offene Summe', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('offene Summe', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // AE
+                // AN
                 ExcelUebergabe(RowNo, ColumnHeader, 'Überschuss/Unterdeckung', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Überschuss/Unterdeckung', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // AF
+                // AO
                 ExcelUebergabe(RowNo, ColumnHeader, 'Status', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Status', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-                // AG
+                // AP
                 ExcelUebergabe(RowNo, ColumnHeader, 'Projekttyp', true, true, '@');
                 ColumnHeader += 1;
                 // TempExcelBuffer.AddColumn('Projekttyp', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+                // AQ
+                ExcelUebergabe(RowNo, ColumnHeader, 'EK-Anfragen', true, true, '@');
+                ColumnHeader += 1;
+                // AR     
+                ExcelUebergabe(RowNo, ColumnHeader, 'EK-Bestellungen', true, true, '@');
+                // AS
+                ColumnHeader += 1;
+                ExcelUebergabe(RowNo, ColumnHeader, 'EK-Rechnungen', true, true, '@');
+                // AT
+                ColumnHeader += 1;
+                ExcelUebergabe(RowNo, ColumnHeader, 'EK-Gutschriften', true, true, '@');
+                ColumnHeader += 1;
+                // AU
+                ExcelUebergabe(RowNo, ColumnHeader, 'Verkaufspreis Materialkosten', true, true, '@');
+                ColumnHeader += 1;
+                // AV
+                ExcelUebergabe(RowNo, ColumnHeader, 'Verkaufspreis Fremdleistung', true, true, '@');
+                ColumnHeader += 1;
+                // AW
+                ExcelUebergabe(RowNo, ColumnHeader, 'Verkaufspreis Fremdlieferung', true, true, '@');
+                ColumnHeader += 1;
             end;
 
             trigger OnPostDataItem()
@@ -749,54 +911,95 @@ Report 50023 "Erlöse Projekte"
                 // Summe O
                 ExcelUebergabeFormula(RowNo, 15, '=SUM(O2:O' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
                 // TempExcelBuffer.AddColumn('=SUMME(O2:O' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
-                // Summe P
+
+
+                // Summe P 
                 ExcelUebergabeFormula(RowNo, 16, '=SUM(P2:P' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(P2:P' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ColumnHeader += 1;
                 // Summe Q
                 ExcelUebergabeFormula(RowNo, 17, '=SUM(Q2:Q' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(Q2:Q' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
+                ColumnHeader += 1;
                 // Summe R
                 ExcelUebergabeFormula(RowNo, 18, '=SUM(R2:R' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(R2:R' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
+                ColumnHeader += 1;
                 // Summe S
-                // ExcelUebergabeFormula(RowNo, 19, '=SUM(S2:S' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ExcelUebergabeFormula(RowNo, 19, '=SUM(S2:S' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                ColumnHeader += 1;
                 // Summe T
-                // ExcelUebergabeFormula(RowNo, 20, '=SUM(D2:D' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ExcelUebergabeFormula(RowNo, 20, '=SUM(T2:T' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                ColumnHeader += 1;
                 // Summe U
                 ExcelUebergabeFormula(RowNo, 21, '=SUM(U2:U' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(U2:U' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ColumnHeader += 1;
                 // Summe V
                 ExcelUebergabeFormula(RowNo, 22, '=SUM(V2:V' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(V2:V' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ColumnHeader += 1;
                 // Summe W
                 ExcelUebergabeFormula(RowNo, 23, '=SUM(W2:W' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(W2:W' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
+                ColumnHeader += 1;
                 // Summe X
                 ExcelUebergabeFormula(RowNo, 24, '=SUM(X2:X' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(X2:X' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                ColumnHeader += 1;
+
+
                 // Summe Y
                 ExcelUebergabeFormula(RowNo, 25, '=SUM(Y2:Y' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(Y2:Y' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // TempExcelBuffer.AddColumn('=SUMME(P2:P' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
                 // Summe Z
                 ExcelUebergabeFormula(RowNo, 26, '=SUM(Z2:Z' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(Z2:Z' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
+                // TempExcelBuffer.AddColumn('=SUMME(Q2:Q' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
                 // Summe AA
                 ExcelUebergabeFormula(RowNo, 27, '=SUM(AA2:AA' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(AA2:A' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // TempExcelBuffer.AddColumn('=SUMME(R2:R' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
                 // Summe AB
-                ExcelUebergabeFormula(RowNo, 28, '=SUM(AB2:AB' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(AB2:AB' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // ExcelUebergabeFormula(RowNo, 19, '=SUM(S2:S' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn('', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
                 // Summe AC
-                ExcelUebergabeFormula(RowNo, 29, '=SUM(AC2:AC' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(AC2:AC' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // ExcelUebergabeFormula(RowNo, 20, '=SUM(D2:D' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn('', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
                 // Summe AD
                 ExcelUebergabeFormula(RowNo, 30, '=SUM(AD2:AD' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
-                // TempExcelBuffer.AddColumn('=SUMME(AD2:AD' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // TempExcelBuffer.AddColumn('=SUMME(U2:U' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
                 // Summe AE
                 ExcelUebergabeFormula(RowNo, 31, '=SUM(AE2:AE' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn('=SUMME(V2:V' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // Summe AF
+                ExcelUebergabeFormula(RowNo, 32, '=SUM(AF2:AF' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn('=SUMME(W2:W' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
+                // Summe AG
+                ExcelUebergabeFormula(RowNo, 33, '=SUM(AG2:AG' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn('=SUMME(X2:X' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // Summe AH
+                ExcelUebergabeFormula(RowNo, 34, '=SUM(AH2:AH' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn('=SUMME(Y2:Y' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // Summe AI
+                ExcelUebergabeFormula(RowNo, 35, '=SUM(AI2:AI' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn('=SUMME(Z2:Z' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00_ ;-#.##0,00 ', TempExcelBuffer."Cell Type"::Number);
+                // Summe AJ
+                ExcelUebergabeFormula(RowNo, 36, '=SUM(AJ2:AJ' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn('=SUMME(AA2:A' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // Summe AK
+                ExcelUebergabeFormula(RowNo, 37, '=SUM(AK2:AK' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn('=SUMME(AB2:AB' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // Summe AL
+                ExcelUebergabeFormula(RowNo, 38, '=SUM(AL2:AL' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn('=SUMME(AC2:AC' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // Summe AM
+                ExcelUebergabeFormula(RowNo, 39, '=SUM(AM2:AM' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // TempExcelBuffer.AddColumn('=SUMME(AD2:AD' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // Summe AN
+                ExcelUebergabeFormula(RowNo, 40, '=SUM(AN2:AN' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
                 // TempExcelBuffer.AddColumn('=SUMME(AE2:AE' + FORMAT(TempExcelBuffer."Row No." - 1) + ')', false, '', true, false, true, '#.##0,00 €;-#.##0,00 €', TempExcelBuffer."Cell Type"::Number);
+                // AQ
+                // AR
+                // AS
+                // AT
+                // AU
+                ExcelUebergabeFormula(RowNo, 47, '=SUM(AU2:AU' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // AV
+                ExcelUebergabeFormula(RowNo, 48, '=SUM(AV2:AV' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
+                // AW
+                ExcelUebergabeFormula(RowNo, 49, '=SUM(AW2:AW' + Format(RowNo - 1) + ')', true, false, '#,##0.00');
             end;
         }
     }

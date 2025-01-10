@@ -2,7 +2,7 @@
   "id": "9f945b82-8bd0-480e-ae2a-9756a24ff940",
   "name": "Reports",
   "publisher": "Dennis Appelt",
-  "version": "22.5.2023112001.2023112001",
+  "version": "24.0.2024092901.2024092901",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -23,10 +23,12 @@
   "application": "21.5.0.0",
   "idRanges": [],
   "resourceExposurePolicy": {
-    "allowDebugging": true, 
-    "allowDownloadingSource": false, 
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
     "includeSourceInSymbolFile": false
   },
   "runtime": "9.0",
-  "features": ["TranslationFile"]
+  "features": [
+    "TranslationFile"
+  ]
 }

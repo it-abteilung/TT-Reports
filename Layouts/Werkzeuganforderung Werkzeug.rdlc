@@ -601,7 +601,7 @@
                                                                 <Paragraph>
                                                                   <TextRuns>
                                                                     <TextRun>
-                                                                      <Value>=Parameters!FertigstellungCaption.Value</Value>
+                                                                      <Value>=Parameters!ReparaturendeCaption.Value</Value>
                                                                       <Style>
                                                                         <FontWeight>Bold</FontWeight>
                                                                       </Style>
@@ -1465,24 +1465,86 @@
                                                       <TablixCells>
                                                         <TablixCell>
                                                           <CellContents>
-                                                            <Textbox Name="Textbox6">
+                                                            <Textbox Name="Textbox84">
+                                                              <CanGrow>true</CanGrow>
                                                               <KeepTogether>true</KeepTogether>
                                                               <Paragraphs>
                                                                 <Paragraph>
                                                                   <TextRuns>
                                                                     <TextRun>
-                                                                      <Value />
-                                                                      <Style />
+                                                                      <Value>Fertigstellung Werkzeuge Lager:</Value>
+                                                                      <Style>
+                                                                        <FontStyle>Normal</FontStyle>
+                                                                        <FontFamily>arial</FontFamily>
+                                                                        <FontWeight>Bold</FontWeight>
+                                                                        <TextDecoration>None</TextDecoration>
+                                                                      </Style>
                                                                     </TextRun>
                                                                   </TextRuns>
                                                                   <Style />
                                                                 </Paragraph>
                                                               </Paragraphs>
-                                                              <rd:DefaultName>Textbox6</rd:DefaultName>
+                                                              <rd:DefaultName>Textbox84</rd:DefaultName>
                                                               <Style>
                                                                 <Border>
-                                                                  <Style>None</Style>
+                                                                  <Style>Solid</Style>
                                                                 </Border>
+                                                                <BackgroundColor>LightGrey</BackgroundColor>
+                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                <PaddingRight>2pt</PaddingRight>
+                                                                <PaddingTop>2pt</PaddingTop>
+                                                                <PaddingBottom>2pt</PaddingBottom>
+                                                              </Style>
+                                                            </Textbox>
+                                                            <ColSpan>2</ColSpan>
+                                                          </CellContents>
+                                                        </TablixCell>
+                                                        <TablixCell />
+                                                        <TablixCell>
+                                                          <CellContents>
+                                                            <Textbox Name="Textbox86">
+                                                              <CanGrow>true</CanGrow>
+                                                              <KeepTogether>true</KeepTogether>
+                                                              <Paragraphs>
+                                                                <Paragraph>
+                                                                  <TextRuns>
+                                                                    <TextRun>
+                                                                      <Value>=Fields!Kopf_Fertigstellung.Value</Value>
+                                                                      <Style>
+                                                                        <Format>d</Format>
+                                                                      </Style>
+                                                                    </TextRun>
+                                                                  </TextRuns>
+                                                                  <Style>
+                                                                    <TextAlign>Center</TextAlign>
+                                                                  </Style>
+                                                                </Paragraph>
+                                                              </Paragraphs>
+                                                              <rd:DefaultName>Textbox86</rd:DefaultName>
+                                                              <Style>
+                                                                <Border>
+                                                                  <Style>Solid</Style>
+                                                                </Border>
+                                                                <TopBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </TopBorder>
+                                                                <BottomBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </BottomBorder>
+                                                                <LeftBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </LeftBorder>
+                                                                <RightBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </RightBorder>
                                                                 <PaddingLeft>2pt</PaddingLeft>
                                                                 <PaddingRight>2pt</PaddingRight>
                                                                 <PaddingTop>2pt</PaddingTop>
@@ -1493,7 +1555,8 @@
                                                         </TablixCell>
                                                         <TablixCell>
                                                           <CellContents>
-                                                            <Textbox Name="Textbox8">
+                                                            <Textbox Name="Textbox87">
+                                                              <CanGrow>true</CanGrow>
                                                               <KeepTogether>true</KeepTogether>
                                                               <Paragraphs>
                                                                 <Paragraph>
@@ -1503,14 +1566,36 @@
                                                                       <Style />
                                                                     </TextRun>
                                                                   </TextRuns>
-                                                                  <Style />
+                                                                  <Style>
+                                                                    <TextAlign>Center</TextAlign>
+                                                                  </Style>
                                                                 </Paragraph>
                                                               </Paragraphs>
-                                                              <rd:DefaultName>Textbox8</rd:DefaultName>
+                                                              <rd:DefaultName>Textbox87</rd:DefaultName>
                                                               <Style>
                                                                 <Border>
-                                                                  <Style>None</Style>
+                                                                  <Style>Solid</Style>
                                                                 </Border>
+                                                                <TopBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </TopBorder>
+                                                                <BottomBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </BottomBorder>
+                                                                <LeftBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </LeftBorder>
+                                                                <RightBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </RightBorder>
                                                                 <PaddingLeft>2pt</PaddingLeft>
                                                                 <PaddingRight>2pt</PaddingRight>
                                                                 <PaddingTop>2pt</PaddingTop>
@@ -1521,7 +1606,8 @@
                                                         </TablixCell>
                                                         <TablixCell>
                                                           <CellContents>
-                                                            <Textbox Name="Textbox10">
+                                                            <Textbox Name="Textbox88">
+                                                              <CanGrow>true</CanGrow>
                                                               <KeepTogether>true</KeepTogether>
                                                               <Paragraphs>
                                                                 <Paragraph>
@@ -1531,71 +1617,37 @@
                                                                       <Style />
                                                                     </TextRun>
                                                                   </TextRuns>
-                                                                  <Style />
+                                                                  <Style>
+                                                                    <TextAlign>Left</TextAlign>
+                                                                  </Style>
                                                                 </Paragraph>
                                                               </Paragraphs>
-                                                              <rd:DefaultName>Textbox10</rd:DefaultName>
+                                                              <rd:DefaultName>Textbox88</rd:DefaultName>
                                                               <Style>
                                                                 <Border>
-                                                                  <Style>None</Style>
+                                                                  <Style>Solid</Style>
                                                                 </Border>
-                                                                <PaddingLeft>2pt</PaddingLeft>
-                                                                <PaddingRight>2pt</PaddingRight>
-                                                                <PaddingTop>2pt</PaddingTop>
-                                                                <PaddingBottom>2pt</PaddingBottom>
-                                                              </Style>
-                                                            </Textbox>
-                                                          </CellContents>
-                                                        </TablixCell>
-                                                        <TablixCell>
-                                                          <CellContents>
-                                                            <Textbox Name="Textbox14">
-                                                              <KeepTogether>true</KeepTogether>
-                                                              <Paragraphs>
-                                                                <Paragraph>
-                                                                  <TextRuns>
-                                                                    <TextRun>
-                                                                      <Value />
-                                                                      <Style />
-                                                                    </TextRun>
-                                                                  </TextRuns>
-                                                                  <Style />
-                                                                </Paragraph>
-                                                              </Paragraphs>
-                                                              <rd:DefaultName>Textbox14</rd:DefaultName>
-                                                              <Style>
-                                                                <Border>
-                                                                  <Style>None</Style>
-                                                                </Border>
-                                                                <PaddingLeft>2pt</PaddingLeft>
-                                                                <PaddingRight>2pt</PaddingRight>
-                                                                <PaddingTop>2pt</PaddingTop>
-                                                                <PaddingBottom>2pt</PaddingBottom>
-                                                              </Style>
-                                                            </Textbox>
-                                                          </CellContents>
-                                                        </TablixCell>
-                                                        <TablixCell>
-                                                          <CellContents>
-                                                            <Textbox Name="Textbox16">
-                                                              <KeepTogether>true</KeepTogether>
-                                                              <Paragraphs>
-                                                                <Paragraph>
-                                                                  <TextRuns>
-                                                                    <TextRun>
-                                                                      <Value />
-                                                                      <Style />
-                                                                    </TextRun>
-                                                                  </TextRuns>
-                                                                  <Style />
-                                                                </Paragraph>
-                                                              </Paragraphs>
-                                                              <rd:DefaultName>Textbox16</rd:DefaultName>
-                                                              <Style>
-                                                                <Border>
-                                                                  <Style>None</Style>
-                                                                </Border>
-                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                <TopBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </TopBorder>
+                                                                <BottomBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </BottomBorder>
+                                                                <LeftBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </LeftBorder>
+                                                                <RightBorder>
+                                                                  <Color>Black</Color>
+                                                                  <Style>Solid</Style>
+                                                                  <Width>1pt</Width>
+                                                                </RightBorder>
+                                                                <PaddingLeft>18pt</PaddingLeft>
                                                                 <PaddingRight>2pt</PaddingRight>
                                                                 <PaddingTop>2pt</PaddingTop>
                                                                 <PaddingBottom>2pt</PaddingBottom>
@@ -1618,21 +1670,10 @@
                                                 </TablixColumnHierarchy>
                                                 <TablixRowHierarchy>
                                                   <TablixMembers>
-                                                    <TablixMember>
-                                                      <KeepWithGroup>After</KeepWithGroup>
-                                                    </TablixMember>
-                                                    <TablixMember>
-                                                      <KeepWithGroup>After</KeepWithGroup>
-                                                    </TablixMember>
-                                                    <TablixMember>
-                                                      <KeepWithGroup>After</KeepWithGroup>
-                                                    </TablixMember>
-                                                    <TablixMember>
-                                                      <Group Name="Details3" />
-                                                      <Visibility>
-                                                        <Hidden>true</Hidden>
-                                                      </Visibility>
-                                                    </TablixMember>
+                                                    <TablixMember />
+                                                    <TablixMember />
+                                                    <TablixMember />
+                                                    <TablixMember />
                                                   </TablixMembers>
                                                 </TablixRowHierarchy>
                                                 <Top>2.80922cm</Top>
@@ -3624,6 +3665,7 @@
                 </FilterValues>
               </Filter>
             </Filters>
+            <Top>0cm</Top>
             <Height>10.77367cm</Height>
             <Width>17.9cm</Width>
             <Style>
@@ -3863,7 +3905,6 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0cm</Top>
               <Left>11.15cm</Left>
               <Height>2.43181cm</Height>
               <Width>6.725cm</Width>
@@ -4079,6 +4120,15 @@
         </Values>
       </DefaultValue>
       <Prompt>ReparaturbeginnCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReparaturendeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ReparaturendeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReparaturendeCaption</Prompt>
     </ReportParameter>
     <ReportParameter Name="FertigstellungCaption">
       <DataType>String</DataType>
@@ -4363,7 +4413,7 @@
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>1</NumberOfColumns>
-      <NumberOfRows>46</NumberOfRows>
+      <NumberOfRows>47</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -4443,156 +4493,161 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>15</RowIndex>
-          <ParameterName>FertigstellungCaption</ParameterName>
+          <ParameterName>ReparaturendeCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>16</RowIndex>
-          <ParameterName>FreigabeSchweißzusätzeCaption</ParameterName>
+          <ParameterName>FertigstellungCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>17</RowIndex>
-          <ParameterName>Abholung_TransportCaption</ParameterName>
+          <ParameterName>FreigabeSchweißzusätzeCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>18</RowIndex>
-          <ParameterName>TransportmittelCaption</ParameterName>
+          <ParameterName>Abholung_TransportCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>19</RowIndex>
-          <ParameterName>WeitertransportCaption</ParameterName>
+          <ParameterName>TransportmittelCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>20</RowIndex>
-          <ParameterName>VerpackungCaption</ParameterName>
+          <ParameterName>WeitertransportCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>21</RowIndex>
-          <ParameterName>amCaption</ParameterName>
+          <ParameterName>VerpackungCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>22</RowIndex>
-          <ParameterName>durchCaption</ParameterName>
+          <ParameterName>amCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>23</RowIndex>
-          <ParameterName>vonCaption</ParameterName>
+          <ParameterName>durchCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>24</RowIndex>
-          <ParameterName>nachCaption</ParameterName>
+          <ParameterName>vonCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>25</RowIndex>
-          <ParameterName>LKWCaption</ParameterName>
+          <ParameterName>nachCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>26</RowIndex>
-          <ParameterName>LKWXCaption</ParameterName>
+          <ParameterName>LKWCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>27</RowIndex>
-          <ParameterName>SeefrachtCaption</ParameterName>
+          <ParameterName>LKWXCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>28</RowIndex>
-          <ParameterName>SeefrachtXCaption</ParameterName>
+          <ParameterName>SeefrachtCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>29</RowIndex>
-          <ParameterName>LuftfrachtCaption</ParameterName>
+          <ParameterName>SeefrachtXCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>30</RowIndex>
-          <ParameterName>LuftfrachtXCaption</ParameterName>
+          <ParameterName>LuftfrachtCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>31</RowIndex>
-          <ParameterName>QuadratCaption</ParameterName>
+          <ParameterName>LuftfrachtXCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>32</RowIndex>
-          <ParameterName>QuadratXCaption</ParameterName>
+          <ParameterName>QuadratCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>33</RowIndex>
-          <ParameterName>KisteCaption</ParameterName>
+          <ParameterName>QuadratXCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>34</RowIndex>
-          <ParameterName>VerschlagCaption</ParameterName>
+          <ParameterName>KisteCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>35</RowIndex>
-          <ParameterName>ContainerCaption</ParameterName>
+          <ParameterName>VerschlagCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>36</RowIndex>
-          <ParameterName>unvepacktCaption</ParameterName>
+          <ParameterName>ContainerCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>37</RowIndex>
-          <ParameterName>AnzahlCaption</ParameterName>
+          <ParameterName>unvepacktCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>38</RowIndex>
-          <ParameterName>EinheitCaption</ParameterName>
+          <ParameterName>AnzahlCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>39</RowIndex>
-          <ParameterName>GenaueBezeichnungCaption</ParameterName>
+          <ParameterName>EinheitCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>40</RowIndex>
-          <ParameterName>gepacktCaption</ParameterName>
+          <ParameterName>GenaueBezeichnungCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>41</RowIndex>
-          <ParameterName>ErstellerCaption</ParameterName>
+          <ParameterName>gepacktCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>42</RowIndex>
-          <ParameterName>DatumUnterschriftCaption</ParameterName>
+          <ParameterName>ErstellerCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>43</RowIndex>
-          <ParameterName>BarcodeCaption</ParameterName>
+          <ParameterName>DatumUnterschriftCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>44</RowIndex>
-          <ParameterName>BinCodeCaption</ParameterName>
+          <ParameterName>BarcodeCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>45</RowIndex>
+          <ParameterName>BinCodeCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>46</RowIndex>
           <ParameterName>DeltaCaption</ParameterName>
         </CellDefinition>
       </CellDefinitions>
@@ -4666,6 +4721,9 @@ End Function
         </Field>
         <Field Name="Kopf_EndingDate">
           <DataField>Kopf_EndingDate</DataField>
+        </Field>
+        <Field Name="Kopf_Fertigstellung">
+          <DataField>Kopf_Fertigstellung</DataField>
         </Field>
         <Field Name="Kopf_AbholungAm">
           <DataField>Kopf_AbholungAm</DataField>
