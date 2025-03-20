@@ -165,7 +165,6 @@
                                   <Value>=Fields!CompanyInfo__Picture_1_.Value</Value>
                                   <MIMEType>image/bmp</MIMEType>
                                   <Sizing>FitProportional</Sizing>
-                                  <Top>0.93333cm</Top>
                                   <Left>12.90536cm</Left>
                                   <Height>1.692cm</Height>
                                   <Width>5.639cm</Width>
@@ -193,7 +192,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CustomerAddress1</rd:DefaultName>
-                                  <Top>3.04833cm</Top>
+                                  <Top>2.115cm</Top>
                                   <Left>0.02485cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>7.51943cm</Width>
@@ -227,7 +226,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyAddress1</rd:DefaultName>
-                                  <Top>1.77933cm</Top>
+                                  <Top>0.846cm</Top>
                                   <Left>0.02485cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>8.7408cm</Width>
@@ -259,7 +258,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CustomerAddress2</rd:DefaultName>
-                                  <Top>3.45462cm</Top>
+                                  <Top>2.52129cm</Top>
                                   <Left>0.02485cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>7.51943cm</Width>
@@ -293,7 +292,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyAddress2</rd:DefaultName>
-                                  <Top>2.16739cm</Top>
+                                  <Top>1.23406cm</Top>
                                   <Left>0.02485cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>8.7408cm</Width>
@@ -324,7 +323,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CustomerAddress3</rd:DefaultName>
-                                  <Top>3.84268cm</Top>
+                                  <Top>2.90935cm</Top>
                                   <Left>0.02485cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>7.51943cm</Width>
@@ -355,7 +354,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CustomerAddress4</rd:DefaultName>
-                                  <Top>4.23074cm</Top>
+                                  <Top>3.29741cm</Top>
                                   <Left>0.02485cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>7.51943cm</Width>
@@ -387,7 +386,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CustomerAddress5</rd:DefaultName>
-                                  <Top>4.6188cm</Top>
+                                  <Top>3.68547cm</Top>
                                   <Left>0.02485cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>7.51943cm</Width>
@@ -419,7 +418,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CustomerAddress6</rd:DefaultName>
-                                  <Top>5.00686cm</Top>
+                                  <Top>4.07353cm</Top>
                                   <Left>0.02485cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>7.51943cm</Width>
@@ -451,7 +450,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CustomerAddress7</rd:DefaultName>
-                                  <Top>5.39492cm</Top>
+                                  <Top>4.46159cm</Top>
                                   <Left>0.02485cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>7.51943cm</Width>
@@ -483,7 +482,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CustomerAddress8</rd:DefaultName>
-                                  <Top>5.78298cm</Top>
+                                  <Top>4.84965cm</Top>
                                   <Left>0.02485cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>7.51943cm</Width>
@@ -517,7 +516,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>EMail_Lbl</rd:DefaultName>
-                                  <Top>4.23074cm</Top>
+                                  <Top>3.29741cm</Top>
                                   <Left>9.80104cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>3.68518cm</Width>
@@ -551,7 +550,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyEMail</rd:DefaultName>
-                                  <Top>4.23074cm</Top>
+                                  <Top>3.29741cm</Top>
                                   <Left>13.48622cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.05562cm</Width>
@@ -585,7 +584,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>HomePage_Lbl</rd:DefaultName>
-                                  <Top>4.6188cm</Top>
+                                  <Top>3.68547cm</Top>
                                   <Left>9.80104cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>3.68518cm</Width>
@@ -619,7 +618,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyHomePage</rd:DefaultName>
-                                  <Top>4.6188cm</Top>
+                                  <Top>3.68547cm</Top>
                                   <Left>13.48622cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.05562cm</Width>
@@ -651,7 +650,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>VATRegistrationNo_Lbl</rd:DefaultName>
-                                  <Top>5.39492cm</Top>
+                                  <Top>4.46159cm</Top>
                                   <Left>9.80104cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>3.69334cm</Width>
@@ -685,7 +684,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>VATRegistrationNo</rd:DefaultName>
-                                  <Top>5.39492cm</Top>
+                                  <Top>4.46159cm</Top>
                                   <Left>13.49991cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.02164cm</Width>
@@ -717,7 +716,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>3.45462cm</Top>
+                                  <Top>2.52129cm</Top>
                                   <Left>9.80104cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>3.68518cm</Width>
@@ -751,7 +750,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo</rd:DefaultName>
-                                  <Top>3.45462cm</Top>
+                                  <Top>2.52129cm</Top>
                                   <Left>13.48622cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.05562cm</Width>
@@ -783,7 +782,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyRegistrationNumber_Lbl</rd:DefaultName>
-                                  <Top>5.00686cm</Top>
+                                  <Top>4.07353cm</Top>
                                   <Left>9.80104cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>3.68518cm</Width>
@@ -820,7 +819,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyRegistrationNumber</rd:DefaultName>
-                                  <Top>5.00686cm</Top>
+                                  <Top>4.07353cm</Top>
                                   <Left>13.48622cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.05562cm</Width>
@@ -853,7 +852,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>STRSUBSTNO_Text004_CopyText___SalesHeader_JobNo</rd:DefaultName>
-                                  <Top>6.17104cm</Top>
+                                  <Top>5.23771cm</Top>
                                   <Height>0.846cm</Height>
                                   <Width>18.06cm</Width>
                                   <ZIndex>21</ZIndex>
@@ -885,7 +884,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>5.78298cm</Top>
+                                  <Top>4.84965cm</Top>
                                   <Left>9.80104cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>3.68518cm</Width>
@@ -919,7 +918,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo</rd:DefaultName>
-                                  <Top>5.78298cm</Top>
+                                  <Top>4.84965cm</Top>
                                   <Left>13.48622cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.05562cm</Width>
@@ -950,7 +949,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.01704cm</Top>
+                                  <Top>6.08371cm</Top>
                                   <Height>0.38806cm</Height>
                                   <Width>2.25cm</Width>
                                   <ZIndex>24</ZIndex>
@@ -980,7 +979,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.4051cm</Top>
+                                  <Top>6.47177cm</Top>
                                   <Height>0.38806cm</Height>
                                   <Width>2.1cm</Width>
                                   <ZIndex>25</ZIndex>
@@ -1010,7 +1009,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.79316cm</Top>
+                                  <Top>6.85983cm</Top>
                                   <Height>0.38806cm</Height>
                                   <Width>2.1cm</Width>
                                   <ZIndex>26</ZIndex>
@@ -1040,7 +1039,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>8.18122cm</Top>
+                                  <Top>7.24789cm</Top>
                                   <Height>0.38806cm</Height>
                                   <Width>2.1cm</Width>
                                   <ZIndex>27</ZIndex>
@@ -1070,7 +1069,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>8.56928cm</Top>
+                                  <Top>7.63595cm</Top>
                                   <Height>0.38806cm</Height>
                                   <Width>2.1cm</Width>
                                   <ZIndex>28</ZIndex>
@@ -1100,7 +1099,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.4051cm</Top>
+                                  <Top>6.47177cm</Top>
                                   <Left>2.27639cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.67cm</Width>
@@ -1131,7 +1130,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.01704cm</Top>
+                                  <Top>6.08371cm</Top>
                                   <Left>2.27639cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.67cm</Width>
@@ -1162,7 +1161,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.79316cm</Top>
+                                  <Top>6.85983cm</Top>
                                   <Left>2.27639cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.67cm</Width>
@@ -1193,7 +1192,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>8.56928cm</Top>
+                                  <Top>7.63595cm</Top>
                                   <Left>2.27639cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.67cm</Width>
@@ -1224,7 +1223,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>8.18122cm</Top>
+                                  <Top>7.24789cm</Top>
                                   <Left>2.27639cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.67cm</Width>
@@ -1255,7 +1254,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.01704cm</Top>
+                                  <Top>6.08371cm</Top>
                                   <Left>8.8629cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>3.36cm</Width>
@@ -1286,7 +1285,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.4051cm</Top>
+                                  <Top>6.47177cm</Top>
                                   <Left>8.8629cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>2.1cm</Width>
@@ -1317,7 +1316,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.79316cm</Top>
+                                  <Top>6.85983cm</Top>
                                   <Left>8.8629cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>2.1cm</Width>
@@ -1348,7 +1347,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>8.18122cm</Top>
+                                  <Top>7.24789cm</Top>
                                   <Left>8.8629cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>2.1cm</Width>
@@ -1379,7 +1378,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>8.56928cm</Top>
+                                  <Top>7.63595cm</Top>
                                   <Left>8.8629cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>2.1cm</Width>
@@ -1410,7 +1409,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.4051cm</Top>
+                                  <Top>6.47177cm</Top>
                                   <Left>11.13928cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>6.92072cm</Width>
@@ -1441,7 +1440,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.01704cm</Top>
+                                  <Top>6.08371cm</Top>
                                   <Left>12.39928cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.66072cm</Width>
@@ -1472,7 +1471,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>7.79316cm</Top>
+                                  <Top>6.85983cm</Top>
                                   <Left>11.13928cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>6.92072cm</Width>
@@ -1503,7 +1502,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>8.56928cm</Top>
+                                  <Top>7.63595cm</Top>
                                   <Left>11.13928cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>6.92072cm</Width>
@@ -1534,7 +1533,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>8.18122cm</Top>
+                                  <Top>7.24789cm</Top>
                                   <Left>11.13928cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>6.92072cm</Width>
@@ -1566,7 +1565,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>3.84268cm</Top>
+                                  <Top>2.90935cm</Top>
                                   <Left>9.81473cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>3.68518cm</Width>
@@ -1600,7 +1599,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo</rd:DefaultName>
-                                  <Top>3.84268cm</Top>
+                                  <Top>2.90935cm</Top>
                                   <Left>13.49991cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.05562cm</Width>
@@ -1631,7 +1630,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>9.73346cm</Top>
+                                  <Top>8.80013cm</Top>
                                   <Height>66.45699pt</Height>
                                   <Width>18.06cm</Width>
                                   <ZIndex>46</ZIndex>
@@ -1661,7 +1660,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>9.3454cm</Top>
+                                  <Top>8.41207cm</Top>
                                   <Height>0.38806cm</Height>
                                   <Width>5.66072cm</Width>
                                   <ZIndex>47</ZIndex>
@@ -1692,7 +1691,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>3.06656cm</Top>
+                                  <Top>2.13323cm</Top>
                                   <Left>9.80104cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>3.68518cm</Width>
@@ -1726,7 +1725,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>CompanyPhoneNo_Lbl</rd:DefaultName>
-                                  <Top>3.06656cm</Top>
+                                  <Top>2.13323cm</Top>
                                   <Left>13.49991cm</Left>
                                   <Height>0.38806cm</Height>
                                   <Width>5.02164cm</Width>
@@ -1742,8 +1741,9 @@
                                 </Textbox>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
+                              <Top>0.93333cm</Top>
                               <Left>0.03515cm</Left>
-                              <Height>12.07792cm</Height>
+                              <Height>11.14459cm</Height>
                               <Width>18.63235cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
@@ -2462,7 +2462,8 @@
                                   </FilterValues>
                                 </Filter>
                               </Filters>
-                              <Top>15.44607cm</Top>
+                              <Top>14.88162cm</Top>
+                              <Left>0.1571cm</Left>
                               <Height>2.762cm</Height>
                               <Width>18.30515cm</Width>
                               <ZIndex>4</ZIndex>
@@ -2476,7 +2477,7 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>1.15235cm</Width>
+                                    <Width>2.0276cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>2.3285cm</Width>
@@ -2497,7 +2498,7 @@
                                     <Width>2.26405cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2cm</Width>
+                                    <Width>1.4871cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.77735cm</Width>
@@ -3212,6 +3213,7 @@
                                               <PaddingRight>5pt</PaddingRight>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -3905,7 +3907,11 @@
                                   <TablixMember />
                                   <TablixMember />
                                   <TablixMember />
-                                  <TablixMember />
+                                  <TablixMember>
+                                    <Visibility>
+                                      <Hidden>=Fields!ShowDiscountColumn.Value = False</Hidden>
+                                    </Visibility>
+                                  </TablixMember>
                                   <TablixMember />
                                   <TablixMember />
                                 </TablixMembers>
@@ -3970,7 +3976,7 @@
                               <DataSetName>DataSet_Result</DataSetName>
                               <Top>12.38621cm</Top>
                               <Height>2.08168cm</Height>
-                              <Width>18.30515cm</Width>
+                              <Width>18.6675cm</Width>
                               <ZIndex>5</ZIndex>
                               <Style>
                                 <Border>
@@ -4050,6 +4056,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
+            <Top>0.29567cm</Top>
             <Height>21.96701cm</Height>
             <Width>18.6675cm</Width>
             <Style>
@@ -4059,7 +4066,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>21.96701cm</Height>
+        <Height>23.5856cm</Height>
         <Style />
       </Body>
       <Width>18.6675cm</Width>
@@ -4845,6 +4852,9 @@ End Function
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
+        <Field Name="ShowDiscountColumn">
+          <DataField>ShowDiscountColumn</DataField>
+        </Field>
         <Field Name="ExternalDocNo">
           <DataField>ExternalDocNo</DataField>
         </Field>

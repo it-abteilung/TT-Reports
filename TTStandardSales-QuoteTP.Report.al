@@ -14,6 +14,7 @@ Report 50026 "TT Standard Sales - Quote TP"
             DataItemTableView = sorting("Document Type", "No.") where("Document Type" = const(Quote));
             RequestFilterFields = "No.", "Sell-to Customer No.", "No. Printed";
             RequestFilterHeading = 'Sales Quote';
+            column(ShowDiscountColumn; ShowDiscountColumn) { } // Justin Bäcker wollte gerne die Rabattspalte verstecken, falls kein Rabatt vorhanden ist
             column(ExternalDocNo; "External Document No.")                //Vorher Job."External Document No."
             {
             }
@@ -621,8 +622,10 @@ Report 50026 "TT Standard Sales - Quote TP"
 
                         if "Line Discount %" = 0 then
                             LineDiscountPctText := ''
-                        else
+                        else begin
+                            ShowDiscountColumn := true;
                             LineDiscountPctText := StrSubstNo('%1%', -ROUND("Line Discount %", 0.1));
+                        end;
 
                         TransHeaderAmount += PrevLineAmount;
                         PrevLineAmount := "Line Amount";
@@ -647,7 +650,6 @@ Report 50026 "TT Standard Sales - Quote TP"
                             UnitOfMeasureTranslation := UnitOfMeasureTrans.Description
                         else
                             UnitOfMeasureTranslation := "Unit of Measure";
-
                     end;
 
                     trigger OnPreDataItem()
@@ -1006,6 +1008,7 @@ Report 50026 "TT Standard Sales - Quote TP"
                 "Sell-to Country": Text[50];
                 Purchaser: Record "Salesperson/Purchaser";
                 EmployeeSignStore: Record "Employee Sign Store";
+                PurchaseLine: Record "Purchase Line";
             begin
                 FirstLineHasBeenOutput := false;
                 Clear(Line);
@@ -1292,6 +1295,10 @@ Report 50026 "TT Standard Sales - Quote TP"
                     end;
                 end;
             end;
+
+            trigger OnPreDataItem()
+            begin
+            end;
         }
     }
 
@@ -1389,6 +1396,8 @@ Report 50026 "TT Standard Sales - Quote TP"
     end;
 
     var
+
+        ShowDiscountColumn: Boolean;
         SalesConfirmationLbl: label 'Sales Quote';
         SalespersonLbl: label 'Sales person';
         CompanyInfoBankAccNoLbl: label 'Account No.';
