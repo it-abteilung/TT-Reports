@@ -533,9 +533,9 @@ Report 50023 "Erlöse Projekte"
                 CreditCounter := PurchCrMemoHdrExtTemp.Count();
 
 
-                CLEAR(JobPlanningLine);
-                JobPlanningLine.SETRANGE("Job No.", "No.");
-                JobPlanningLine.CALCSUMS(Quantity, Lohnkosten, Materialkosten, Fremdarbeitenkosten, Fremdlieferungskosten, Transportkosten, Hotelkosten, Flugkosten, Auslöse);
+                // CLEAR(JobPlanningLine);
+                // JobPlanningLine.SETRANGE("Job No.", "No.");
+                // JobPlanningLine.CALCSUMS(Quantity, Lohnkosten, Materialkosten, Fremdarbeitenkosten, Fremdlieferungskosten, Transportkosten, Hotelkosten, Flugkosten, Auslöse);
 
                 // TempExcelBuffer.NewRow();
                 RowNo += 1;

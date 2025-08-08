@@ -117,18 +117,21 @@ Report 50026 "TT Standard Sales - Quote TP"
             column(CompanyVATRegistrationNo_Lbl; CompanyInfo.GetVATRegistrationNumberLbl)
             {
             }
-            column(CompanyLegalOffice; CompanyInfo.GetLegalOffice)
-            {
-            }
-            column(CompanyLegalOffice_Lbl; CompanyInfo.GetLegalOfficeLbl)
-            {
-            }
-            column(CompanyCustomGiro; CompanyInfo.GetCustomGiro)
-            {
-            }
-            column(CompanyCustomGiro_Lbl; CompanyInfo.GetCustomGiroLbl)
-            {
-            }
+            // ***
+            //  Version 26.2.33671.0 Obsolete procedure
+            // ***
+            // column(CompanyLegalOffice; CompanyInfo.GetLegalOffice)
+            // {
+            // }
+            // column(CompanyLegalOffice_Lbl; CompanyInfo.GetLegalOfficeLbl)
+            // {
+            // }
+            // column(CompanyCustomGiro; CompanyInfo.GetCustomGiro)
+            // {
+            // }
+            // column(CompanyCustomGiro_Lbl; CompanyInfo.GetCustomGiroLbl)
+            // {
+            // }
             column(CompanyLegalStatement; GetLegalStatement)
             {
             }
@@ -495,6 +498,9 @@ Report 50026 "TT Standard Sales - Quote TP"
                     {
                     }
                     column(LineNo_Line; "Line No.")
+                    {
+                    }
+                    column(LineType; Line.Type)
                     {
                     }
                     column(AmountExcludingVAT_Line; Amount)
@@ -1024,7 +1030,7 @@ Report 50026 "TT Standard Sales - Quote TP"
 
                 "Language Code" := 'ENU';
 
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := Language_G.GetLanguageIdOrDefault("Language Code");
 
                 CalcFields("Work Description");
                 ShowWorkDescription := "Work Description".Hasvalue;
@@ -1439,7 +1445,7 @@ Report 50026 "TT Standard Sales - Quote TP"
         CompanyInfo: Record "Company Information";
         Cust: Record Customer;
         RespCenter: Record "Responsibility Center";
-        Language: Codeunit Language;
+        Language_G: Codeunit Language;
         VATClause: Record "VAT Clause";
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";

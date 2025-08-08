@@ -983,8 +983,8 @@ Report 50028 "TT Purchase - Quote TP"
                 LandCode: Code[10];
                 l_Contact: Record Contact;
             begin
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
-                CurrReport.Language := Language.GetLanguageIdOrDefault('ENU');
+                CurrReport.Language := Language_G.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := Language_G.GetLanguageIdOrDefault('ENU');
 
                 CompanyInfo.Get;
 
@@ -1402,7 +1402,7 @@ Report 50028 "TT Purchase - Quote TP"
         PurchLine: Record "Purchase Line" temporary;
         PrepmtInvBuf: Record "Prepayment Inv. Line Buffer" temporary;
         RespCenter: Record "Responsibility Center";
-        Language: codeunit Language;
+        Language_G: codeunit Language;
         CurrExchRate: Record "Currency Exchange Rate";
         Vendor: Record Vendor;
         Schiff: Record "Multi Table";

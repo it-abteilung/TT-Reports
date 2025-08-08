@@ -280,7 +280,7 @@ Report 50051 "TT Order Barcode"
                 LandCode: Code[10];
                 l_Contact: Record Contact;
             begin
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := Language_G.GetLanguageIdOrDefault("Language Code");
 
                 CompanyInfo.Get;
 
@@ -529,7 +529,7 @@ Report 50051 "TT Order Barcode"
         PurchLine: Record "Purchase Line" temporary;
         PrepmtInvBuf: Record "Prepayment Inv. Line Buffer" temporary;
         RespCenter: Record "Responsibility Center";
-        Language: Codeunit Language;
+        Language_G: Codeunit Language;
         CurrExchRate: Record "Currency Exchange Rate";
         Vendor: Record Vendor;
         Schiff: Record "Multi Table";

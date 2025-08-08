@@ -824,7 +824,7 @@ Report 50003 "TT Sales - Order"
                 "Sell-to Country": Text[50];
             begin
                 "Language Code" := 'ENU';
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := Language_G.GetLanguageIdOrDefault("Language Code");
 
                 if RespCenter.Get("Responsibility Center") then begin
                     FormatAddr.RespCenter(CompanyAddr, RespCenter);
@@ -1203,7 +1203,7 @@ Report 50003 "TT Sales - Order"
         VATAmountLine: Record "VAT Amount Line" temporary;
         SalesLine: Record "Sales Line" temporary;
         RespCenter: Record "Responsibility Center";
-        Language: Codeunit Language;
+        Language_G: Codeunit Language;
         Country: Record "Country/Region";
         CurrExchRate: Record "Currency Exchange Rate";
         SalesCountPrinted: Codeunit "Sales-Printed";

@@ -210,8 +210,6 @@ Report 50029 "Import Kalkulation from Excel"
                     Job."Auslösezuschlag %" := Job."Auslösezuschlag %" * 100;
                     Job.Modify;
                 end;
-
-
                 if (TempExcelBuf."Row No." > 19) and (TempExcelBuf."Column No." = 1) and (TempExcelBuf."Cell Value as Text" = '') then begin
                     ZeileEinlesen := false;
                     LetzteNr := 0;
@@ -236,8 +234,7 @@ Report 50029 "Import Kalkulation from Excel"
                     ImportKalkulation.Description := '';
                     ImportKalkulation."Baugruppe Tree" := 0;
                     ImportKalkulation.Insert;
-                end
-                else begin
+                end else begin
                     if (TempExcelBuf."Row No." > 19) and (TempExcelBuf."Column No." = 2) and (TempExcelBuf."Cell Value as Text" <> '') and
                        ZeileEinlesen then begin
                         PosNr := TempExcelBuf."Cell Value as Text";
@@ -440,4 +437,3 @@ Report 50029 "Import Kalkulation from Excel"
         end;
     end;
 }
-

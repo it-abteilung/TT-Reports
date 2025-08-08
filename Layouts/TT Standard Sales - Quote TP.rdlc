@@ -4957,18 +4957,6 @@ End Function
         <Field Name="CompanyVATRegistrationNo_Lbl">
           <DataField>CompanyVATRegistrationNo_Lbl</DataField>
         </Field>
-        <Field Name="CompanyLegalOffice">
-          <DataField>CompanyLegalOffice</DataField>
-        </Field>
-        <Field Name="CompanyLegalOffice_Lbl">
-          <DataField>CompanyLegalOffice_Lbl</DataField>
-        </Field>
-        <Field Name="CompanyCustomGiro">
-          <DataField>CompanyCustomGiro</DataField>
-        </Field>
-        <Field Name="CompanyCustomGiro_Lbl">
-          <DataField>CompanyCustomGiro_Lbl</DataField>
-        </Field>
         <Field Name="CompanyLegalStatement">
           <DataField>CompanyLegalStatement</DataField>
         </Field>
@@ -5325,6 +5313,9 @@ End Function
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>
+        </Field>
+        <Field Name="LineType">
+          <DataField>LineType</DataField>
         </Field>
         <Field Name="AmountExcludingVAT_Line">
           <DataField>AmountExcludingVAT_Line</DataField>
