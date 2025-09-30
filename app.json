@@ -2,7 +2,7 @@
   "id": "9f945b82-8bd0-480e-ae2a-9756a24ff940",
   "name": "Reports",
   "publisher": "Dennis Appelt",
-  "version": "26.3.2025080801.2025080801",
+  "version": "26.3.2025093001.2025093001",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -15,7 +15,7 @@
       "id": "3c4d2308-e1f4-4510-b79f-8815e9ad205e",
       "name": "Tables",
       "publisher": "Dennis Appelt",
-      "version": "21.1.2023032701.2023032702"
+      "version": "21.1.2023032701.2023032701"
     }
   ],
   "screenshots": [],

@@ -862,10 +862,15 @@ Report 50000 "TT Order RTC"
                         ReferenceText := 'Your letter / Date'
                     else
                         ReferenceText := 'Ihr Angebot / Datum';
+
                 if CompanyInfo."VAT Registration No." = '' then
                     VATNoText := ''
                 else
                     VATNoText := FieldCaption("VAT Registration No.");
+
+                if "Language Code" <> 'DEU' then // 11082025 CN - added new line - change english description of VAT Registration No.
+                    VATNoText := VATRegistrationNo_G; // 11082025 CN - added new line - change english description of VAT Registration No.
+
                 if "Currency Code" = '' then begin
                     GLSetup.TestField("LCY Code");
                     TotalText := StrSubstNo(Text001, GLSetup."LCY Code");
@@ -1265,7 +1270,7 @@ Report 50000 "TT Order RTC"
         CompanyInfo__Fax_No__CaptionLbl: label 'Telefax';
         CompanyInfo__E_Mail_CaptionLbl: label 'E-Mail';
         CompanyInfo__Home_Page_CaptionLbl: label 'Internet';
-        CompanyInfo__Registration_No__CaptionLbl: label 'Registration No.';
+        CompanyInfo__Registration_No__CaptionLbl: label 'Tax no.';
         FORMAT__Purchase_Header___Document_Date__0_4_CaptionLbl: label 'Date';
         KontaktnameCaptionLbl: label 'Your Reference';
         CompanyInfo__Phone_No___Control1140076CaptionLbl: label 'Telephone';
@@ -1311,6 +1316,7 @@ Report 50000 "TT Order RTC"
         Ship_to_AddressCaptionLbl: label 'Ship-to Address';
         ItemChargeTranslation: Record "Item Charge Translation";
         ElectronicInvoiceTxt: Label 'IMPORTANT NOTE: Transition to electronic invoice receipt - Please send us your invoice exclusively as a PDF via e-mail to invoice@turbotechnik.com.';
+        VATRegistrationNo_G: Label 'VAT-ID'; //11082025 CN - Change text of default "vt registration no.""
 
 
     procedure "AnzeigeSchiffÜbergeben"(P_AnzeigeSchiff: Boolean)

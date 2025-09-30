@@ -236,8 +236,8 @@ Report 50022 "Kostenübersicht - Einkauf"
                             DrVersand := l_Versand;
                             DrMWST := l_amountVAT - l_amount;
                             DrRechnung := PurchInvHeader."Vendor Invoice No.";
-                            if Leistungszeitraum = '' then
-                                Leistungszeitraum := l_PurchHeader.Leistungszeitraum;
+                            // if Leistungszeitraum = '' then
+                            Leistungszeitraum := l_PurchHeader.Leistungszeitraum;
 
                             if MengeSicher <> 0 then begin
                                 PurchLine_temp := l_PurchLine;
@@ -365,8 +365,8 @@ Report 50022 "Kostenübersicht - Einkauf"
                             DrVersand := l_Versand;
                             DrMWST := l_amountVAT - l_amount;
                             DrRechnung := PurchInvHeader."Vendor Invoice No.";
-                            if Leistungszeitraum = '' then
-                                Leistungszeitraum := l_PurchHeader.Leistungszeitraum;
+                            // if Leistungszeitraum = '' then
+                            Leistungszeitraum := l_PurchHeader.Leistungszeitraum;
 
                             if MengeSicher <> 0 then begin
                                 if PurchLine_temp.Get(l_PurchLine."Document Type", l_PurchLine."Document No.", 0) then begin
@@ -621,8 +621,8 @@ Report 50022 "Kostenübersicht - Einkauf"
                             DrVersand := l_Versand;
                             DrMWST := l_amountVAT - l_amount;
                             DrRechnung := l_PurchInvHeader."Vendor Invoice No.";
-                            if Leistungszeitraum = '' then
-                                Leistungszeitraum := l_PurchInvHeader.Leistungszeitraum;
+                            // if Leistungszeitraum = '' then
+                            Leistungszeitraum := l_PurchInvHeader.Leistungszeitraum;
 
                             if l_amount <> 0 then begin
                                 if PurchInvLine_temp.Get(l_PurchInvLine."Document No.", 0) then begin
@@ -761,8 +761,8 @@ Report 50022 "Kostenübersicht - Einkauf"
                             DrVersand := l_Versand;
                             DrMWST := l_amountVAT - l_amount;
                             DrRechnung := l_PurchInvHeader."Vendor Invoice No.";
-                            if Leistungszeitraum = '' then
-                                Leistungszeitraum := l_PurchInvHeader.Leistungszeitraum;
+                            // if Leistungszeitraum = '' then
+                            Leistungszeitraum := l_PurchInvHeader.Leistungszeitraum;
 
                             if l_amount <> 0 then begin
                                 if PurchInvLine_temp.Get(l_PurchInvLine."Document No.", 0) then begin
@@ -988,8 +988,8 @@ Report 50022 "Kostenübersicht - Einkauf"
                             DrVersand := l_Versand;
                             DrMWST := l_amountVAT - l_amount;
                             DrRechnung := l_PurchCrMHeader."Vendor Cr. Memo No.";
-                            if Leistungszeitraum = '' then
-                                Leistungszeitraum := l_PurchCrMHeader.Leistungszeitraum;
+                            // if Leistungszeitraum = '' then
+                            Leistungszeitraum := l_PurchCrMHeader.Leistungszeitraum;
 
                             if l_amount <> 0 then begin
                                 if PurchCrMemoLine_temp.Get(l_PurchCrMLine."Document No.", 0) then begin
@@ -1101,8 +1101,8 @@ Report 50022 "Kostenübersicht - Einkauf"
                             DrVersand := l_Versand;
                             DrMWST := l_amountVAT - l_amount;
                             DrRechnung := l_PurchCrMHeader."Vendor Cr. Memo No.";
-                            if Leistungszeitraum = '' then
-                                Leistungszeitraum := l_PurchCrMHeader.Leistungszeitraum;
+                            // if Leistungszeitraum = '' then
+                            Leistungszeitraum := l_PurchCrMHeader.Leistungszeitraum;
 
                             if l_amount <> 0 then begin
                                 if PurchCrMemoLine_temp.Get(l_PurchCrMLine."Document No.", 0) then begin

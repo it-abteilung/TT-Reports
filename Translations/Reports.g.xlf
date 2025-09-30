@@ -1594,7 +1594,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report TT Order RTC - NamedType CompanyInfo__Phone_No___Control1140076CaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 3554076349 - NamedType 1985143894" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Registration No.</source>
+          <source>Tax no.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report TT Order RTC - NamedType CompanyInfo__Registration_No__CaptionLbl</note>
         </trans-unit>
@@ -1892,6 +1892,11 @@
           <source>Subtotal:</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report TT Order RTC - NamedType TextZwischensumme</note>
+        </trans-unit>
+        <trans-unit id="Report 3554076349 - NamedType 932294021" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT-ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TT Order RTC - NamedType VATRegistrationNo_G</note>
         </trans-unit>
         <trans-unit id="Report 3554076349 - NamedType 3304207715" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>

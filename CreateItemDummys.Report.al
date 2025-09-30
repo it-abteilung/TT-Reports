@@ -6,7 +6,7 @@ Report 50054 CreateItemDummys
 
     dataset
     {
-        dataitem("Integer";"Integer")
+        dataitem("Integer"; "Integer")
         {
             DataItemTableView = sorting(Number) order(ascending);
             column(ReportForNavId_100000000; 100000000)
@@ -21,7 +21,7 @@ Report 50054 CreateItemDummys
 
                 item."No." := '';
                 item."No. Series" := NoSeries;
-                NoSeriesManagement.SetSeries(item."No.");
+                // NoSeriesManagement.SetSeries(item."No.");
                 item.Insert(true);
 
                 item.Description := 'Dummy';
@@ -39,7 +39,7 @@ Report 50054 CreateItemDummys
 
             trigger OnPreDataItem()
             begin
-                Integer.SetRange(Number,1,NumberOfItems);
+                Integer.SetRange(Number, 1, NumberOfItems);
 
                 if Count > 0 then
                     Factor := 9999 / Count;
@@ -57,12 +57,12 @@ Report 50054 CreateItemDummys
                 group(Options)
                 {
                     Caption = 'Optionen';
-                    field(NumberOfItems;NumberOfItems)
+                    field(NumberOfItems; NumberOfItems)
                     {
                         ApplicationArea = Basic;
                         Caption = 'Anzahl der Artikel';
                     }
-                    field(NoSeries;NoSeries)
+                    field(NoSeries; NoSeries)
                     {
                         ApplicationArea = Basic;
                         CaptionClass = Item_g.FIELDCAPTION("No. Series");
@@ -72,34 +72,34 @@ Report 50054 CreateItemDummys
                         var
                             oldNoSeries: Code[10];
                         begin
-                            if NoSeriesManagement.SelectSeries(InventorySetup."Item Nos.",oldNoSeries,NoSeries) then;
+                            // if NoSeriesManagement.SelectSeries(InventorySetup."Item Nos.",oldNoSeries,NoSeries) then;
                         end;
                     }
-                    field(ProdPostingGroup;ProdPostingGroup)
+                    field(ProdPostingGroup; ProdPostingGroup)
                     {
                         ApplicationArea = Basic;
                         CaptionClass = Item_g.FIELDCAPTION("Gen. Prod. Posting Group");
                         TableRelation = "Gen. Product Posting Group";
                     }
-                    field(VatProdPostingGroup;VatProdPostingGroup)
+                    field(VatProdPostingGroup; VatProdPostingGroup)
                     {
                         ApplicationArea = Basic;
                         CaptionClass = Item_g.FIELDCAPTION("VAT Prod. Posting Group");
                         TableRelation = "VAT Product Posting Group";
                     }
-                    field(BaseUnit;BaseUnit)
+                    field(BaseUnit; BaseUnit)
                     {
                         ApplicationArea = Basic;
                         CaptionClass = Item_g.FIELDCAPTION("Base Unit of Measure");
                         TableRelation = "Unit of Measure";
                     }
-                    field(SalesBaseUnit;SalesBaseUnit)
+                    field(SalesBaseUnit; SalesBaseUnit)
                     {
                         ApplicationArea = Basic;
                         CaptionClass = Item_g.FIELDCAPTION("Sales Unit of Measure");
                         TableRelation = "Unit of Measure";
                     }
-                    field(PurchaseBaseUnit;PurchaseBaseUnit)
+                    field(PurchaseBaseUnit; PurchaseBaseUnit)
                     {
                         ApplicationArea = Basic;
                         CaptionClass = Item_g.FIELDCAPTION("Purch. Unit of Measure");
@@ -134,25 +134,25 @@ Report 50054 CreateItemDummys
         item: Record Item;
     begin
         if NumberOfItems < 1 then
-          Error(ERR_NoOfLoops);
+            Error(ERR_NoOfLoops);
 
         if NoSeries = '' then
-          Error(ERR_Field,item.FieldCaption("No. Series"));
+            Error(ERR_Field, item.FieldCaption("No. Series"));
 
         if ProdPostingGroup = '' then
-          Error(ERR_Field,item.FieldCaption("Gen. Prod. Posting Group"));
+            Error(ERR_Field, item.FieldCaption("Gen. Prod. Posting Group"));
 
         if VatProdPostingGroup = '' then
-          Error(ERR_Field,item.FieldCaption("VAT Prod. Posting Group"));
+            Error(ERR_Field, item.FieldCaption("VAT Prod. Posting Group"));
 
         if BaseUnit = '' then
-          Error(ERR_Field,item.FieldCaption("Base Unit of Measure"));
+            Error(ERR_Field, item.FieldCaption("Base Unit of Measure"));
 
         if SalesBaseUnit = '' then
-          Error(ERR_Field,item.FieldCaption("Sales Unit of Measure"));
+            Error(ERR_Field, item.FieldCaption("Sales Unit of Measure"));
 
         if PurchaseBaseUnit = '' then
-          Error(ERR_Field,item.FieldCaption("Purch. Unit of Measure"));
+            Error(ERR_Field, item.FieldCaption("Purch. Unit of Measure"));
 
 
         Window.Open('Artikel anlegen #1###### @2@@@@@@@@');
@@ -161,7 +161,7 @@ Report 50054 CreateItemDummys
     var
         InventorySetup: Record "Inventory Setup";
         Item_g: Record Item;
-        NoSeriesManagement: Codeunit NoSeriesManagement;
+        // NoSeriesManagement: Codeunit NoSeriesManagement;
         NumberOfItems: Integer;
         NoSeries: Code[10];
         ProdPostingGroup: Code[10];
