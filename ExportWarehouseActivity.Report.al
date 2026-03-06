@@ -5,12 +5,14 @@
 
 //     dataset
 //     {
+
 //         dataitem("Posted Whse. Shipment Line";"Posted Whse. Shipment Line")
 //         {
 //             DataItemTableView = sorting("No.","Line No.") order(ascending);
 //             column(ReportForNavId_100000003; 100000003)
 //             {
 //             }
+
 //             dataitem("Registered Whse. Activity Line";"Registered Whse. Activity Line")
 //             {
 //                 DataItemLink = "Item No."=field("Item No.");
@@ -30,7 +32,6 @@
 //                     RegisteredWhseActivityHdr_l.Get("Activity Type","No.");
 //                     if (Job_g <> '') and (RegisteredWhseActivityHdr_l."Job No" <> Job_g) then
 //                       CurrReport.Break();
-
 //                     SetRange("Item No.","Item No.");
 //                     FindLast();
 //                     SetRange("Item No.");
@@ -82,7 +83,6 @@
 
 //     requestpage
 //     {
-
 //         layout
 //         {
 //             area(content)

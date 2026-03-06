@@ -3213,7 +3213,6 @@
                                               <PaddingRight>5pt</PaddingRight>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -3902,7 +3901,11 @@
                               <TablixColumnHierarchy>
                                 <TablixMembers>
                                   <TablixMember />
-                                  <TablixMember />
+                                  <TablixMember>
+                                    <Visibility>
+                                      <Hidden>=Fields!ShowPNColumn.Value = False</Hidden>
+                                    </Visibility>
+                                  </TablixMember>
                                   <TablixMember />
                                   <TablixMember />
                                   <TablixMember />
@@ -4854,6 +4857,9 @@ End Function
       <Fields>
         <Field Name="ShowDiscountColumn">
           <DataField>ShowDiscountColumn</DataField>
+        </Field>
+        <Field Name="ShowPNColumn">
+          <DataField>ShowPNColumn</DataField>
         </Field>
         <Field Name="ExternalDocNo">
           <DataField>ExternalDocNo</DataField>

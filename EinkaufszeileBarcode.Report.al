@@ -6,72 +6,72 @@ Report 50049 "Einkaufszeile Barcode"
 
     dataset
     {
-        dataitem("Purchase Line";"Purchase Line")
+        dataitem("Purchase Line"; "Purchase Line")
         {
-            DataItemTableView = sorting("Document Type","Document No.","Line No.");
+            DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
             column(ReportForNavId_6547; 6547)
             {
             }
-            column(Purchase_Line_Document_Type;"Document Type")
+            column(Purchase_Line_Document_Type; "Document Type")
             {
             }
-            column(Purchase_Line_Document_No_;"Document No.")
+            column(Purchase_Line_Document_No_; "Document No.")
             {
             }
-            column(Purchase_Line_Line_No_;"Line No.")
+            column(Purchase_Line_Line_No_; "Line No.")
             {
             }
-            dataitem("Integer";"Integer")
+            dataitem("Integer"; "Integer")
             {
                 DataItemTableView = sorting(Number);
                 column(ReportForNavId_5444; 5444)
                 {
                 }
-                dataitem("Purchase Line_Druck";"Purchase Line")
+                dataitem("Purchase Line_Druck"; "Purchase Line")
                 {
-                    DataItemLink = "Document Type"=field("Document Type"),"Document No."=field("Document No."),"Line No."=field("Line No.");
+                    DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("Document No."), "Line No." = field("Line No.");
                     DataItemLinkReference = "Purchase Line";
-                    DataItemTableView = sorting("Document Type","Document No.","Line No.");
+                    DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
                     column(ReportForNavId_1463; 1463)
                     {
                     }
-                    column(Purchase_Line___Job_No__;"Purchase Line"."Job No.")
+                    column(Purchase_Line___Job_No__; "Purchase Line"."Job No.")
                     {
                     }
-                    column(Auftragsnr___;'Auftragsnr.:')
+                    column(Auftragsnr___; 'Auftragsnr.:')
                     {
                     }
-                    column(JobRec_Objektname;JobRec.Objektname)
+                    column(JobRec_Objektname; JobRec.Objektname)
                     {
                     }
-                    column(Objekt__;'Objekt:')
+                    column(Objekt__; 'Objekt:')
                     {
                     }
-                    column(Purchase_Line__Baugruppe____________Purchase_Line__Pos;"Purchase Line".Baugruppe + ' / ' + "Purchase Line".Pos)
+                    column(Purchase_Line__Baugruppe____________Purchase_Line__Pos; "Purchase Line".Baugruppe + ' / ' + "Purchase Line".Pos)
                     {
                     }
-                    column(Bgr____Pos___;'Bgr. / Pos.:')
+                    column(Bgr____Pos___; 'Bgr. / Pos.:')
                     {
                     }
-                    column(Purchase_Line__Description;"Purchase Line".Description)
+                    column(Purchase_Line__Description; "Purchase Line".Description)
                     {
                     }
-                    column(Beschreibung__;'Beschreibung:')
+                    column(Beschreibung__; 'Beschreibung:')
                     {
                     }
-                    column(Purchase_Line___Description_2_;"Purchase Line"."Description 2")
+                    column(Purchase_Line___Description_2_; "Purchase Line"."Description 2")
                     {
                     }
-                    column(ItemRec__Description_3_;ItemRec."Description 3")
+                    column(ItemRec__Description_3_; ItemRec."Description 3")
                     {
                     }
-                    column(Purchase_Line_Druck_Document_Type;"Document Type")
+                    column(Purchase_Line_Druck_Document_Type; "Document Type")
                     {
                     }
-                    column(Purchase_Line_Druck_Document_No_;"Document No.")
+                    column(Purchase_Line_Druck_Document_No_; "Document No.")
                     {
                     }
-                    column(Purchase_Line_Druck_Line_No_;"Line No.")
+                    column(Purchase_Line_Druck_Line_No_; "Line No.")
                     {
                     }
 
@@ -82,24 +82,24 @@ Report 50049 "Einkaufszeile Barcode"
                         BarcodeText2 := 'Artikelnr.: ' + "Purchase Line"."No.";
 
                         if not ItemRec.Get("No.") then
-                          ItemRec.Init;
+                            ItemRec.Init;
                         if not JobRec.Get("Job No.") then
-                          JobRec.Init;
+                            JobRec.Init;
                         //JobRec.calcfields(Objektname);
                     end;
                 }
 
                 trigger OnPreDataItem()
                 begin
-                    SetRange(Number,1,AnzEtiketten);
+                    SetRange(Number, 1, AnzEtiketten);
                 end;
             }
 
             trigger OnPreDataItem()
             begin
-                SetRange("Document Type","document type"::Order);
-                SetRange("Document No.",Belegnr);
-                SetRange("Line No.",Zeilennr);
+                SetRange("Document Type", "document type"::Order);
+                SetRange("Document No.", Belegnr);
+                SetRange("Line No.", Zeilennr);
             end;
         }
     }
@@ -114,7 +114,7 @@ Report 50049 "Einkaufszeile Barcode"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(AnzEtiketten;AnzEtiketten)
+                    field(AnzEtiketten; AnzEtiketten)
                     {
                         ApplicationArea = Basic;
                         Caption = 'Anzahl Etiketten';
@@ -139,7 +139,6 @@ Report 50049 "Einkaufszeile Barcode"
 
     var
         InventorySetup: Record "Inventory Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
         Barcode: Text[30];
         BarcodeText: Text[30];
         BarcodeText2: Text[30];
@@ -152,7 +151,7 @@ Report 50049 "Einkaufszeile Barcode"
         Zeilennr: Integer;
 
 
-    procedure "WerteÜbergeben"(PBelegnr: Code[20];PZeilennr: Integer;PAnzEtiketten: Integer)
+    procedure "WerteÜbergeben"(PBelegnr: Code[20]; PZeilennr: Integer; PAnzEtiketten: Integer)
     begin
         Belegnr := PBelegnr;
         Zeilennr := PZeilennr;

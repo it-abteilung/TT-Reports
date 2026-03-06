@@ -122,6 +122,27 @@ Report 50022 "Kostenübersicht - Einkauf"
                 {
                 }
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             dataitem("Purchase Line"; "Purchase Line")
             {
                 DataItemLink = "Job No." = field("No.");
@@ -254,8 +275,32 @@ Report 50022 "Kostenübersicht - Einkauf"
                     end;                                 // G-ERP.AG 2021-06-24
                 end;
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             dataitem("Purchase Header"; "Purchase Header")
             {
+
+                // OUTPUT REPORT PDF
+
                 DataItemLink = "Job No." = field("No.");
                 DataItemTableView = sorting("Document Type", "No.") order(ascending) where("Document Type" = const(Order));
 
@@ -300,6 +345,7 @@ Report 50022 "Kostenübersicht - Einkauf"
 
                             if waehrungsfaktor = 0 then
                                 waehrungsfaktor := 1;
+
                             LetzteBelegnummer := "Document No.";
                             Clear(l_amount);
                             Clear(l_discount);
@@ -322,8 +368,8 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     if l_PurchLine."Line Discount %" <> 0 then
                                         l_AktSumme := l_AktSumme - (l_AktSumme / 100 * l_PurchLine."Line Discount %");
 
-                                    l_amount := l_amount + l_AktSumme;
-                                    l_discount := l_discount + l_PurchLine."Inv. Discount Amount";
+                                    l_amount += l_AktSumme;
+                                    l_discount += l_PurchLine."Inv. Discount Amount";
 
                                     l_amountVAT := l_amountVAT + l_AktSumme + (l_AktSumme / 100 * l_PurchLine."VAT %");
                                     if (l_PurchLine."No." = '999900') or (l_PurchLine."No." = '999901') then begin
@@ -496,7 +542,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                     DrDatum := l_PurchHeader."Order Date";
                     DrName := l_PurchHeader."Buy-from Vendor Name";
                     DrLeistung := l_PurchHeader.Leistung;
-                    DrBetrag := PurchLine_temp."Direct Unit Cost" - PurchLine_temp."Inv. Discount Amount";
+                    DrBetrag := PurchLine_temp."Direct Unit Cost";
                     DrVersand := PurchLine_temp."Unit Cost (LCY)";
                     DrMWST := PurchLine_temp.Amount;
                     DrRechnung := PurchInvHeader."Vendor Invoice No.";
@@ -713,9 +759,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     if l_PurchInvHeader."Prices Including VAT" then begin
                                         l_amount := l_amount + (l_PurchInvLine.Amount / waehrungsfaktor);
                                         l_discount := l_discount + (l_PurchInvLine."Inv. Discount Amount" / waehrungsfaktor);
-                                        l_amountVAT := l_amountVAT +
-                                                       (l_PurchInvLine.Amount / waehrungsfaktor) +
-                                                       (l_PurchInvLine.Amount / waehrungsfaktor / 100 * l_PurchInvLine."VAT %");
+                                        l_amountVAT := l_amountVAT + (l_PurchInvLine.Amount / waehrungsfaktor) + (l_PurchInvLine.Amount / waehrungsfaktor / 100 * l_PurchInvLine."VAT %");
                                         if (l_PurchInvLine."No." = '999900') or (l_PurchInvLine."No." = '999901') then begin
                                             l_Versand := l_Versand + (l_PurchInvLine.Amount / waehrungsfaktor);
                                         end;
@@ -996,9 +1040,9 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     PurchCrMemoLine_temp."Direct Unit Cost" += l_amount;
                                     PurchCrMemoLine_temp."Unit Cost (LCY)" += l_Versand;
                                     PurchCrMemoLine_temp.Amount += l_amountVAT - l_amount;
+                                    PurchCrMemoLine_temp."Line Amount" += l_amount;
                                     PurchCrMemoLine_temp.Modify;
-                                end
-                                else begin
+                                end else begin
                                     PurchCrMemoLine_temp := l_PurchCrMLine;
                                     if PurchCrMemoLine_temp.Leistungsart = 0 then
                                         PurchCrMemoLine_temp.Leistungsart := l_PurchCrMHeader.Leistungsart;
@@ -1006,6 +1050,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     PurchCrMemoLine_temp."Direct Unit Cost" := l_amount;
                                     PurchCrMemoLine_temp."Unit Cost (LCY)" := l_Versand;
                                     PurchCrMemoLine_temp.Amount := l_amountVAT - l_amount;
+                                    PurchCrMemoLine_temp."Line Amount" := l_amount;
                                     PurchCrMemoLine_temp.Insert;
                                 end;
                             end;
@@ -1065,7 +1110,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                             // G-ERP.AG 2021-06-24  l_PurchCrMLine.SETRANGE("Job No.",'LV');
                             if l_PurchCrMLine.Find('-') then
                                 repeat
-                                    l_amount := l_amount + (l_PurchCrMLine.Quantity * l_PurchCrMLine."Direct Unit Cost" / waehrungsfaktor);
+                                    l_amount := l_amount + (l_PurchCrMLine."Line Amount" / waehrungsfaktor);
                                     l_amountVAT := l_amountVAT +
                                                    (l_PurchCrMLine."Line Amount" / waehrungsfaktor) +
                                                    (l_PurchCrMLine."Line Amount" / waehrungsfaktor / 100 * l_PurchCrMLine."VAT %");
@@ -1109,6 +1154,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     PurchCrMemoLine_temp."Direct Unit Cost" += l_amount;
                                     PurchCrMemoLine_temp."Unit Cost (LCY)" += l_Versand;
                                     PurchCrMemoLine_temp.Amount += l_amountVAT - l_amount;
+                                    PurchCrMemoLine_temp."Line Amount" += l_amount;
                                     PurchCrMemoLine_temp.Modify;
                                 end
                                 else begin
@@ -1118,6 +1164,7 @@ Report 50022 "Kostenübersicht - Einkauf"
                                     PurchCrMemoLine_temp."Line No." := 0;
                                     PurchCrMemoLine_temp."Direct Unit Cost" := l_amount;
                                     PurchCrMemoLine_temp."Unit Cost (LCY)" := l_Versand;
+                                    PurchCrMemoLine_temp."Line Amount" := l_amount;
                                     PurchCrMemoLine_temp.Amount := l_amountVAT - l_amount;
                                     PurchCrMemoLine_temp.Insert;
                                 end;
@@ -1216,11 +1263,13 @@ Report 50022 "Kostenübersicht - Einkauf"
                     if PurchCrMemoLine_temp."Direct Unit Cost" <> 0 then
                         drucken := true;
 
-                    DrNummer := l_PurchCrMHeader."Pre-Assigned No.";
+                    // DrNummer := l_PurchCrMHeader."Pre-Assigned No.";
+                    DrNummer := l_PurchCrMHeader."No.";
                     DrDatum := l_PurchCrMHeader."Posting Date";
                     DrName := l_PurchCrMHeader."Buy-from Vendor Name";
                     DrLeistung := l_PurchCrMHeader.Leistung;
-                    DrBetrag := PurchCrMemoLine_temp."Direct Unit Cost";
+                    // DrBetrag := PurchCrMemoLine_temp."Direct Unit Cost";
+                    DrBetrag := PurchCrMemoLine_temp."Line Amount";
                     DrVersand := PurchCrMemoLine_temp."Unit Cost (LCY)";
                     DrMWST := PurchCrMemoLine_temp.Amount;
                     DrRechnung := l_PurchCrMHeader."Vendor Cr. Memo No.";

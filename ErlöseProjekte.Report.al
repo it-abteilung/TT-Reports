@@ -368,7 +368,7 @@ Report 50023 "Erlöse Projekte"
 
                         if PurchaseLine."Outstanding Amount" <> 0 then begin                            //G-ERP.RS 2019-09-11 Anfrage#233661
                             if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Fremdlieferung then
-                                Fremdlief += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);         //G-ERP.RS 2019-09-11 Anfrage#233661
+                                Fremdlief += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);         //G-ERP.RS 2019-09-11 Anfrage#233661
                             if (PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Fremdleistung) or
                                //         (PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Transport) OR    //G-ERP.RS 2019-05-21 Anfrage#232823
                                //         (PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Reisekosten) OR
@@ -377,17 +377,17 @@ Report 50023 "Erlöse Projekte"
                                //         (PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Hotelkosten) OR
                                (PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::" ") then
                                 //Fremdleist += (PurchaseLine.Amount / waehrungsfaktor);                    //G-ERP.RS 2019-05-21 Anfrage#232823
-                                Fremdleist += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);
+                                Fremdleist += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);
                             if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Transport then      //G-ERP.RS 2019-05-21 Anfrage#232823
-                                TranspLeist += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);       //G-ERP.RS 2019-05-21 Anfrage#232823
+                                TranspLeist += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);       //G-ERP.RS 2019-05-21 Anfrage#232823
                             if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Auslöse then        //G-ERP.RS 2019-05-21 Anfrage#232823
-                                AuslöseLeist += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);      //G-ERP.RS 2019-05-21 Anfrage#232823
+                                AuslöseLeist += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);      //G-ERP.RS 2019-05-21 Anfrage#232823
                             if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Personal then       //G-ERP.RS 2019-08-15 Anfrage#233661
-                                PersonalIst += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);       //G-ERP.RS 2019-08-15 Anfrage#233661
+                                PersonalIst += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);       //G-ERP.RS 2019-08-15 Anfrage#233661
                             if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Hotelkosten then    //G-ERP.RS 2019-09-11 Anfrage#233661
-                                HotelIst += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);          //G-ERP.RS 2019-09-11 Anfrage#233661
+                                HotelIst += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);          //G-ERP.RS 2019-09-11 Anfrage#233661
                             if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Flugkosten then    //G-ERP.RS 2019-09-11 Anfrage#233661
-                                ReisekostenIst += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);    //G-ERP.RS 2019-09-11 Anfrage#233661
+                                ReisekostenIst += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);    //G-ERP.RS 2019-09-11 Anfrage#233661
                         end;
                     until PurchaseLine.Next = 0;
 
@@ -421,7 +421,7 @@ Report 50023 "Erlöse Projekte"
 
                                     if PurchaseLine."Outstanding Amount" <> 0 then begin                            //G-ERP.RS 2019-09-11 Anfrage#233661
                                         if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Fremdlieferung then
-                                            Fremdlief += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);         //G-ERP.RS 2019-09-11 Anfrage#233661
+                                            Fremdlief += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);         //G-ERP.RS 2019-09-11 Anfrage#233661
                                         if (PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Fremdleistung) or
                                            //         (PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Transport) OR    //G-ERP.RS 2019-05-21 Anfrage#232823
                                            //         (PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Reisekosten) OR
@@ -430,17 +430,17 @@ Report 50023 "Erlöse Projekte"
                                            //         (PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Hotelkosten) OR
                                            (PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::" ") then
                                             //Fremdleist += (PurchaseLine.Amount / waehrungsfaktor);                    //G-ERP.RS 2019-05-21 Anfrage#232823
-                                            Fremdleist += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);
+                                            Fremdleist += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);
                                         if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Transport then      //G-ERP.RS 2019-05-21 Anfrage#232823
-                                            TranspLeist += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);       //G-ERP.RS 2019-05-21 Anfrage#232823
+                                            TranspLeist += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);       //G-ERP.RS 2019-05-21 Anfrage#232823
                                         if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Auslöse then        //G-ERP.RS 2019-05-21 Anfrage#232823
-                                            AuslöseLeist += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);      //G-ERP.RS 2019-05-21 Anfrage#232823
+                                            AuslöseLeist += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);      //G-ERP.RS 2019-05-21 Anfrage#232823
                                         if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Personal then       //G-ERP.RS 2019-08-15 Anfrage#233661
-                                            PersonalIst += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);       //G-ERP.RS 2019-08-15 Anfrage#233661
+                                            PersonalIst += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);       //G-ERP.RS 2019-08-15 Anfrage#233661
                                         if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Hotelkosten then    //G-ERP.RS 2019-09-11 Anfrage#233661
-                                            HotelIst += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);          //G-ERP.RS 2019-09-11 Anfrage#233661
+                                            HotelIst += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);          //G-ERP.RS 2019-09-11 Anfrage#233661
                                         if PurchaseLine.Leistungsart = PurchaseLine.Leistungsart::Flugkosten then    //G-ERP.RS 2019-09-11 Anfrage#233661
-                                            ReisekostenIst += (PurchaseLine."Outstanding Amount" / waehrungsfaktor);    //G-ERP.RS 2019-09-11 Anfrage#233661
+                                            ReisekostenIst += (PurchaseLine."Outstanding Amt. Ex. VAT (LCY)" / waehrungsfaktor);    //G-ERP.RS 2019-09-11 Anfrage#233661
                                     end;
                                 end;
                             until PurchaseLine.Next = 0;

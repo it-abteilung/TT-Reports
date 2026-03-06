@@ -15,6 +15,7 @@ Report 50026 "TT Standard Sales - Quote TP"
             RequestFilterFields = "No.", "Sell-to Customer No.", "No. Printed";
             RequestFilterHeading = 'Sales Quote';
             column(ShowDiscountColumn; ShowDiscountColumn) { } // Justin Bäcker wollte gerne die Rabattspalte verstecken, falls kein Rabatt vorhanden ist
+            column(ShowPNColumn; ShowPNColumn) { } // Justin Bäcker wollte gerne die Rabattspalte verstecken, falls kein Rabatt vorhanden ist
             column(ExternalDocNo; "External Document No.")                //Vorher Job."External Document No."
             {
             }
@@ -656,6 +657,8 @@ Report 50026 "TT Standard Sales - Quote TP"
                             UnitOfMeasureTranslation := UnitOfMeasureTrans.Description
                         else
                             UnitOfMeasureTranslation := "Unit of Measure";
+
+                        if "Part No." <> '' then ShowPNColumn := true;
                     end;
 
                     trigger OnPreDataItem()
@@ -1404,6 +1407,7 @@ Report 50026 "TT Standard Sales - Quote TP"
     var
 
         ShowDiscountColumn: Boolean;
+        ShowPNColumn: Boolean;
         SalesConfirmationLbl: label 'Sales Quote';
         SalespersonLbl: label 'Sales person';
         CompanyInfoBankAccNoLbl: label 'Account No.';
